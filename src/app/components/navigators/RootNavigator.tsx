@@ -1,18 +1,36 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Text, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { logoutFromGoogle } from 'services/socialLogin';
 import { Login } from 'screens/general';
+
 import MainNavigator from './MainNavigator';
 
 const Stack = createStackNavigator();
+
+const headerOptions = {
+  headerLeft: () => null,
+  headerRight: () => (
+    <TouchableOpacity onPress={logoutFromGoogle}>
+      <Text>Logout</Text>
+    </TouchableOpacity>
+  ),
+};
 
 const RootNavigator = () => (
   <>
     <StatusBar barStyle="dark-content" />
     <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Main" component={MainNavigator} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+      />
+      <Stack.Screen
+        name="Main"
+        component={MainNavigator}
+        options={headerOptions}
+      />
     </Stack.Navigator>
   </>
 );

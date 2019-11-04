@@ -1,5 +1,7 @@
 import { firebase } from '@react-native-firebase/auth';
-import { GoogleSignin, User } from '@react-native-community/google-signin';
+import { GoogleSignin } from '@react-native-community/google-signin';
+
+import { navigate } from 'services/navigationService';
 
 export const configureGoogleLogin = async () => {
   GoogleSignin.configure({
@@ -8,10 +10,28 @@ export const configureGoogleLogin = async () => {
   });
 };
 
-export const loginWithGoogle = async () => {
-  const { accessToken, idToken } = await GoogleSignin.signIn();
-  console.log(accessToken, idToken);
+export const loginWithGoogle = async () => new Promise((resolve, reject) => {
+  GoogleSignin.signIn()
+    .then(async ({ accessToken, idToken }) => {
+      const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
+      await firebase.auth().signInWithCredential(credential);
 
-  const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
-  await firebase.auth().signInWithCredential(credential);
-};
+      navigate('Main');
+      resolve();
+    })
+    .catch((error) => {
+      reject(error)
+    });
+});
+
+export const logoutFromGoogle = () => new Promise((resolve, reject) => {
+  GoogleSignin.signOut()
+    .then(() => {
+      navigate('Login');
+      resolve();
+    })
+    .catch((error) => {
+      console.error(error);
+      reject(error)
+    });
+});

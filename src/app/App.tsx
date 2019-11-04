@@ -9,7 +9,7 @@ import { store } from './store';
 
 import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
-import { navigationRef } from 'services/NavigationService';
+import { navigationRef } from 'services/navigationService';
 
 const App: React.FC = () => {
   useEffect(() => {
