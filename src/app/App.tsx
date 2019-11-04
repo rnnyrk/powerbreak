@@ -4,10 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import RNBootSplash from 'react-native-bootsplash';
 import { NavigationNativeContainer } from '@react-navigation/native';
 
-import theme from 'styles/theme';
 import { store } from './store';
 
+import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
+import { navigationRef } from 'services/NavigationService';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <NavigationNativeContainer>
+        <NavigationNativeContainer ref={navigationRef}>
           <RootNavigator />
         </NavigationNativeContainer>
       </ThemeProvider>

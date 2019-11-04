@@ -27,6 +27,7 @@
       "screens": ["./src/app/components/screens"],
       "screens/*": ["./src/app/components/screens/*"],
       "services": ["./src/app/services"],
+      "services/*": ["./src/app/services/*"],
       "static": ["./src/app/static"],
       "store": ["./src/app/store"],
       "styles": ["./src/app/styles"],
