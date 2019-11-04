@@ -221,6 +221,8 @@ PODS:
     - React-cxxreact (= 0.61.3)
     - React-jsi (= 0.61.3)
     - ReactCommon/jscallinvoker (= 0.61.3)
+  - ReactNativeBeaconsManager (1.1.0):
+    - React
   - RNBootSplash (1.0.3):
     - React
   - RNCAsyncStorage (1.6.2):
@@ -267,6 +269,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeBeaconsManager (from `../node_modules/react-native-beacons-manager`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
@@ -277,7 +280,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -333,6 +336,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeBeaconsManager:
+    :path: "../node_modules/react-native-beacons-manager"
   RNBootSplash:
     :path: "../node_modules/react-native-bootsplash"
   RNCAsyncStorage:
@@ -378,6 +383,7 @@ SPEC CHECKSUMS:
   React-RCTText: b8f895b94aa0e7778fef28d13f3d71eed4a10c3d
   React-RCTVibration: 262588c97551b0b1c675468cda857466ba5af18f
   ReactCommon: c2c63d9290b422ca6ad5b3663073a015dd892ae9
+  ReactNativeBeaconsManager: dd0b01841445881989af5be9ab83153d1cdaa6b7
   RNBootSplash: bba8b884b667778b0fd0c34a5f909046ff0f2237
   RNCAsyncStorage: 5ae4d57458804e99f73d427214442a6b10a53856
   RNCMaskedView: 6200428cc4fb088ee7ae64a648e39bd8f4e70b41
