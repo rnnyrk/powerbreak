@@ -184,6 +184,8 @@ PODS:
   - React-jsinspector (0.61.3)
   - react-native-config (0.11.7):
     - React
+  - react-native-safe-area-context (0.5.0):
+    - React
   - React-RCTActionSheet (0.61.3):
     - React-Core/RCTActionSheetHeaders (= 0.61.3)
   - React-RCTAnimation (0.61.3):
@@ -223,6 +225,8 @@ PODS:
     - React
   - RNCAsyncStorage (1.6.2):
     - React
+  - RNCMaskedView (0.1.1):
+    - React
   - RNGestureHandler (1.5.0):
     - React
   - RNReanimated (1.4.0):
@@ -251,6 +255,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-config (from `../node_modules/react-native-config`)
+  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -264,6 +269,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -305,6 +311,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-config:
     :path: "../node_modules/react-native-config"
+  react-native-safe-area-context:
+    :path: "../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -329,6 +337,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-bootsplash"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-community/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -357,6 +367,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: ae078e9df9c65bcdcf68f9a17656657932d95528
   React-jsinspector: a8939cc6909607eb5e8a5ecfff7c6226984e174d
   react-native-config: 8f6b2b9e017f6a5e92a97353c768e19e67294bb1
+  react-native-safe-area-context: 329e0a80f124c687e00773fee417a3903788840a
   React-RCTActionSheet: 94671eef55b01a93be735605822ef712d5ea208e
   React-RCTAnimation: 524ae33e73de9c0fe6501a7a4bda8e01d26499d9
   React-RCTBlob: 5481c2db702f57207af7e7a9b32d90524b821b72
@@ -369,6 +380,7 @@ SPEC CHECKSUMS:
   ReactCommon: c2c63d9290b422ca6ad5b3663073a015dd892ae9
   RNBootSplash: bba8b884b667778b0fd0c34a5f909046ff0f2237
   RNCAsyncStorage: 5ae4d57458804e99f73d427214442a6b10a53856
+  RNCMaskedView: 6200428cc4fb088ee7ae64a648e39bd8f4e70b41
   RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 2f53466846305189a0cfd1745f26b6ca141b3a08
