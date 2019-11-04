@@ -4,14 +4,17 @@ import { ThemeProvider } from 'styled-components';
 import RNBootSplash from 'react-native-bootsplash';
 import { NavigationNativeContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { store } from './store';
+import { enableScreens } from 'react-native-screens';
 
 import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
 import { navigationRef } from 'services/navigationService';
 
+import { store } from './store';
+
 const App: React.FC = () => {
+  enableScreens();
+
   useEffect(() => {
     RNBootSplash.hide({ duration: 250 });
   }, []);
