@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>46769492028-8klbgq0unj6cgacaakosc3vuhv0kmv3q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.46769492028-8klbgq0unj6cgacaakosc3vuhv0kmv3q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzScdu8sBd_UbfH2Fy0rOCSteplAOlTWc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>46769492028</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>nl.powerbreak</string>
+	<key>PROJECT_ID</key>
+	<string>powerbrake-5655b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>powerbrake-5655b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:46769492028:ios:7f3b9103aa02e071df7339</string>
+	<key>DATABASE_URL</key>
+	<string>https://powerbrake-5655b.firebaseio.com</string>
+</dict>
+</plist>

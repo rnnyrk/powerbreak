@@ -20,6 +20,17 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.46769492028-8klbgq0unj6cgacaakosc3vuhv0kmv3q</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -37,11 +48,11 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>To track your location via Beacons in the chill-wing we want to use your device location! </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>To track your location via Beacons in the chill-wing we want to use your device location! </string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>To track your location via Beacons in the chill-wing we want to use your device location! </string>
 	<key>UIBackgroundModes</key>
 	<array>

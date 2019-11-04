@@ -9,6 +9,9 @@ project 'powerbreak',
   'Acc - Release' => :release,
   'Test - Release' => :release
 
+# add pods for desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
+
 target 'powerbreak' do
   # Pods for powerbreak
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"

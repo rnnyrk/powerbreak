@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "46769492028",
+    "firebase_url": "https://powerbrake-5655b.firebaseio.com",
+    "project_id": "powerbrake-5655b",
+    "storage_bucket": "powerbrake-5655b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46769492028:android:278732b84e416b7fdf7339",
+        "android_client_info": {
+          "package_name": "com.powerbreak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46769492028-npd3gi9bctscav7e2s2b5qd1a9368ul0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbrjVFEUCEgRFUcpuilTFetb1xuf87tp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46769492028-npd3gi9bctscav7e2s2b5qd1a9368ul0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "46769492028-8klbgq0unj6cgacaakosc3vuhv0kmv3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nl.powerbreak"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
