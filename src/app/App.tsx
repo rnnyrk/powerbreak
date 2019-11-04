@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import RNBootSplash from 'react-native-bootsplash';
 import { NavigationNativeContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { store } from './store';
 
@@ -18,9 +19,11 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <NavigationNativeContainer ref={navigationRef}>
-          <RootNavigator />
-        </NavigationNativeContainer>
+        <SafeAreaProvider>
+          <NavigationNativeContainer ref={navigationRef}>
+            <RootNavigator />
+          </NavigationNativeContainer>
+        </SafeAreaProvider>
       </ThemeProvider>
     </Provider>
   );

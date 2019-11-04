@@ -1,44 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
 import auth from '@react-native-firebase/auth';
-import { firebase } from '@react-native-firebase/auth';
-import { GoogleSignin } from '@react-native-community/google-signin';
+import { useNavigation } from '@react-navigation/core';
+import { User } from '@react-native-community/google-signin';
 
-import { LoadingContainer } from './styled';
+import { configureGoogleLogin, loginWithGoogle } from 'services/socialLogin';
 import { Button } from 'common/interaction';
 
-const Login: React.FC<LoginProps> = () => {
+import { LoadingContainer } from './styled';
+
+const Login: React.FC = () => {
   const [initilizing, setInitilizing] = useState(true);
   const [user, setUser] = useState();
-
-  const onAuthStateChanged = (user) => {
-    setUser(user);
-
-    if (initilizing) {
-      setInitilizing(false);
-    }
-  };
-
-  const bootstrapFirebase = async () => {
-    await GoogleSignin.configure({
-      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-      webClientId: '46769492028-npd3gi9bctscav7e2s2b5qd1a9368ul0.apps.googleusercontent.com',
-    });
-  };
+  const navigation = useNavigation();
 
   useEffect(() => {
-    bootstrapFirebase();
+    configureGoogleLogin();
 
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  const googleLogin = async () => {
-    const { accessToken, idToken } = await GoogleSignin.signIn();
-    console.log(accessToken, idToken);
+  const onAuthStateChanged = (user: User) => {
+    setUser(user);
 
-    const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
-    await firebase.auth().signInWithCredential(credential);
+    if (initilizing) {
+      setInitilizing(false);
+    }
   };
 
   if (initilizing) return null;
@@ -48,7 +36,7 @@ const Login: React.FC<LoginProps> = () => {
       <LoadingContainer>
         <Text>Login</Text>
         <Button
-          onPress={googleLogin}
+          onPress={loginWithGoogle}
           title="Login with Google"
         />
       </LoadingContainer>
@@ -58,10 +46,12 @@ const Login: React.FC<LoginProps> = () => {
   return (
     <LoadingContainer>
       <Text>Welcome {user.email}</Text>
+      <Button
+        onPress={() => navigation.replace('Main', {})}
+        title="Go to main"
+      />
     </LoadingContainer>
   );
 };
-
-type LoginProps = {};
 
 export default Login;
