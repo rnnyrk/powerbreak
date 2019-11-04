@@ -1,0 +1,40 @@
+{
+  "presets": [
+    "module:metro-react-native-babel-preset",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "babel-plugin-styled-components",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".ts", ".tsx", ".ios.js", ".android.js"],
+        "alias": {
+          "app": "./src/app",
+          "common": "./src/app/components/common",
+          "common/*": "./src/app/components/common/*",
+          "config": "./src/config",
+          "ducks": "./src/app/ducks",
+          "ducks/*": "./src/app/ducks/*",
+          "images": "./src/app/static/images",
+          "modules": "./src/app/components/modules",
+          "modules/*": "./src/app/components/modules/*",
+          "navigators": "./src/app/components/navigators",
+          "navigators/*": "./src/app/components/navigators/*",
+          "screens": "./src/app/components/screens",
+          "services": "./src/app/services",
+          "static": "./src/app/static",
+          "store": "./src/app/store",
+          "styles": "./src/app/styles",
+          "styled-components": "./src/app/services/styled-components",
+          "types": "./src/app/types",
+          "vectors": "./src/app/static/vectors"
+        },
+        "cwd": "babelrc"
+      }
+    ]
+  ]
+}
