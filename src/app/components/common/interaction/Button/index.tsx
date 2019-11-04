@@ -1,23 +1,28 @@
 import React from 'react';
-import { Text } from 'react-native';
+
+import theme from 'styles/theme';
+import { TextContent } from 'common/typography';
 
 import { ExtendedTouchableHighlight } from './styled';
 
 const Button: React.FC<ButtonProps> = ({
-  onPress, disabled, loading, title
+  onPress, disabled, loading, title, variant
 }) => (
   <ExtendedTouchableHighlight
     onPress={onPress}
+    underlayColor={theme.colors.purple.light}
     disabled={disabled || loading}
     loading={loading}
+    variant={variant}
   >
-    <Text>{title}</Text>
+    <TextContent>{title}</TextContent>
   </ExtendedTouchableHighlight>
 );
 
 Button.defaultProps = {
   disabled: false,
   loading: false,
+  variant: 'primary',
 }
 
 type ButtonProps = {
@@ -25,6 +30,7 @@ type ButtonProps = {
   title: string;
   disabled?: boolean;
   loading?: boolean;
+  variant: 'primary' | 'secondary';
 };
 
 export default Button;

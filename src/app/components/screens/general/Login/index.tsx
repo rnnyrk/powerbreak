@@ -9,9 +9,8 @@ import { configureGoogleLogin, loginWithGoogle } from 'services/socialLogin';
 import { navigate } from 'services/navigationService';
 import { useSelector, useDispatch } from 'services/hooks';
 import { Button } from 'common/interaction';
+import { Container } from 'common/general';
 import { setAuth, resetAuth } from 'ducks/auth';
-
-import { LoadingContainer } from './styled';
 
 const Login: React.FC = () => {
   const [init, setInit] = useState(true);
@@ -49,13 +48,13 @@ const Login: React.FC = () => {
   if (init) return null;
 
   return !accessToken ? (
-    <LoadingContainer>
-      <Text>Login</Text>
+    <Container>
       <Button
         onPress={loginWithGoogle}
         title="Login with Google"
+        variant="secondary"
       />
-    </LoadingContainer>
+    </Container>
   ) : null;
 };
 

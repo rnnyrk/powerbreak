@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Text, DeviceEventEmitter } from 'react-native';
+import { DeviceEventEmitter } from 'react-native';
 // import Beacons from 'react-native-beacons-manager';
 // import BluetoothState from 'react-native-bluetooth-state';
 
-import { DashboardContainer } from './styled';
+import { Container } from 'common/general';
+import { TextContent } from 'common/typography';
 
 const Dashboard: React.FC<DashboardProps> = () => {
   const [bluetoothState, setBluetoothState] = useState(false);
@@ -50,14 +51,14 @@ const Dashboard: React.FC<DashboardProps> = () => {
   // }, [dataSource]);
 
   return (
-    <DashboardContainer>
-      <Text>
+    <Container>
+      <TextContent>
         Bluetooth connection status: {bluetoothState ? bluetoothState : 'NA'}
-      </Text>
-      <Text>
+      </TextContent>
+      <TextContent>
         All beacons in the area
-      </Text>
-    </DashboardContainer>
+      </TextContent>
+    </Container>
   );
 };
 

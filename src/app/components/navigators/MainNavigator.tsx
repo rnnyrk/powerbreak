@@ -15,16 +15,17 @@ const RootNavigator = () => {
     <Tab.Navigator
       initialRouteName="Dashboard"
       tabBarOptions={{
-        activeTintColor: theme.colors.prime,
-        inactiveTintColor: theme.colors.gray,
+        activeTintColor: theme.colors.white,
+        inactiveTintColor: theme.colors.purple.light,
         style: {
           height: 110,
           paddingTop: 16,
           paddingBottom: insets.bottom,
-          backgroundColor: theme.colors.black,
+          backgroundColor: theme.colors.purple.dark,
         },
         labelStyle: {
           fontSize: 12,
+          fontWeight: 'bold',
           lineHeight: 20,
           fontFamily: theme.fonts.regular,
         },

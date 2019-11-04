@@ -1,8 +1,12 @@
 export default {
   colors: {
-    prime: '#e7ff00',
+    blue: '#3884ff',
     gray: '#dddddd',
-    black: '#000000',
+    purple: {
+      light: '#5e5e80',
+      default: '#3e3e54',
+      dark: '#1f1f2e',
+    },
     white: '#ffffff',
   },
   fonts: {

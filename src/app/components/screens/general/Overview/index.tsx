@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { OverviewContainer } from './styled';
+import { Container } from 'common/general';
+import { TextContent } from 'common/typography';
 
 const Overview: React.FC = () => (
-  <OverviewContainer>
-    <Text>Overview</Text>
-  </OverviewContainer>
+  <Container>
+    <TextContent>Overview</TextContent>
+  </Container>
 );
 
 export default Overview;

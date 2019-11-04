@@ -5,16 +5,28 @@ import * as i from 'types';
 
 import { logoutFromGoogle } from 'services/socialLogin';
 import { Login } from 'screens/general';
+import theme from 'styles/theme';
+import { TextContent } from 'common/typography';
 
 import MainNavigator from './MainNavigator';
 
 const Stack = createStackNavigator<i.RootStackParamList>();
 
+const headerStyle = {
+  headerStyle: {
+    backgroundColor: theme.colors.blue,
+  },
+  headerTitleStyle: {
+    color: theme.colors.white,
+  },
+};
+
 const headerOptions = {
+  ...headerStyle,
   headerLeft: () => null,
   headerRight: () => (
-    <TouchableOpacity onPress={logoutFromGoogle}>
-      <Text>Logout</Text>
+    <TouchableOpacity onPress={logoutFromGoogle} style={{ paddingRight: 16 }}>
+      <TextContent>Logout</TextContent>
     </TouchableOpacity>
   ),
 };
@@ -27,6 +39,7 @@ const RootNavigator = () => (
         name="Login"
         component={Login}
         initialParams={{ resetAuthToken: false }}
+        options={headerStyle}
       />
       <Stack.Screen
         name="Main"
