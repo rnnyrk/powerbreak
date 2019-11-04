@@ -9,7 +9,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Main');
+      navigation.replace('Main', {});
     }, 2000);
   }, [navigation]);
 
