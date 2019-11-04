@@ -3,10 +3,6 @@ import { NavigationContainerRef } from '@react-navigation/routers/lib/typescript
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
-export const navigate = (name: string, params?: object) => {
+export const navigate = (name: string, params?: any) => {
   navigationRef.current && navigationRef.current.navigate(name, params || {});
-};
-
-export const replace = (name: string, params?: object) => {
-  navigationRef.current && navigationRef.current.replace(name, params || {});
 };

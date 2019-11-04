@@ -27,7 +27,7 @@ export const loginWithGoogle = async () => new Promise((resolve, reject) => {
 export const logoutFromGoogle = () => new Promise((resolve, reject) => {
   GoogleSignin.signOut()
     .then(() => {
-      navigate('Login');
+      navigate('Login', { resetAuthToken: true });
       resolve();
     })
     .catch((error) => {

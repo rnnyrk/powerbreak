@@ -1,13 +1,14 @@
 import React from 'react';
 import { StatusBar, Text, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as i from 'types';
 
 import { logoutFromGoogle } from 'services/socialLogin';
 import { Login } from 'screens/general';
 
 import MainNavigator from './MainNavigator';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<i.RootStackParamList>();
 
 const headerOptions = {
   headerLeft: () => null,
@@ -25,6 +26,7 @@ const RootNavigator = () => (
       <Stack.Screen
         name="Login"
         component={Login}
+        initialParams={{ resetAuthToken: false }}
       />
       <Stack.Screen
         name="Main"

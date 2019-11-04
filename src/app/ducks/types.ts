@@ -1,6 +1,6 @@
 import * as i from 'types';
-export * from './data/types';
+export * from './auth/types';
 
 export type ReduxState = {
-  data: i.DataState;
+  auth: i.AuthState;
 };

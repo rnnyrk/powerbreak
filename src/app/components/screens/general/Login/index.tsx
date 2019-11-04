@@ -2,16 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Text } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { User } from '@react-native-community/google-signin';
+import { useRoute } from '@react-navigation/core';
+import * as i from 'types';
 
 import { configureGoogleLogin, loginWithGoogle } from 'services/socialLogin';
 import { navigate } from 'services/navigationService';
+import { useSelector, useDispatch } from 'services/hooks';
 import { Button } from 'common/interaction';
+import { setAuth, resetAuth } from 'ducks/auth';
 
 import { LoadingContainer } from './styled';
 
 const Login: React.FC = () => {
-  const [initilizing, setInitilizing] = useState(true);
-  const [user, setUser] = useState();
+  const [init, setInit] = useState(true);
+  const route = useRoute<i.LoginScreenRouteProp>();
+  const dispatch = useDispatch();
+  const accessToken = useSelector((state) => state.auth.data.accessToken);
+
+  useEffect(() => {
+    const { resetAuthToken } = route.params;
+
+    if (accessToken && resetAuthToken) {
+      navigate('Main');
+    } else if (resetAuthToken) {
+      dispatch(resetAuth());
+    }
+  }, [accessToken]);
 
   useEffect(() => {
     configureGoogleLogin();
@@ -21,35 +37,26 @@ const Login: React.FC = () => {
   }, []);
 
   const onAuthStateChanged = (user: User | null) => {
-    setUser(user);
-    if (initilizing) {
-      setInitilizing(false);
+    if (user) {
+      dispatch(setAuth(user.accessToken));
+    }
+
+    if (init) {
+      setInit(false);
     }
   };
 
-  if (initilizing) return null;
+  if (init) return null;
 
-  if (!user) {
-    return (
-      <LoadingContainer>
-        <Text>Login</Text>
-        <Button
-          onPress={loginWithGoogle}
-          title="Login with Google"
-        />
-      </LoadingContainer>
-    );
-  }
-
-  return (
+  return !accessToken ? (
     <LoadingContainer>
-      <Text>Welcome</Text>
+      <Text>Login</Text>
       <Button
-        onPress={() => navigate('Main')}
-        title="Ga to home"
+        onPress={loginWithGoogle}
+        title="Login with Google"
       />
     </LoadingContainer>
-  );
+  ) : null;
 };
 
 export default Login;
