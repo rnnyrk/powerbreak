@@ -317,6 +317,8 @@ PODS:
     - React
   - RNCMaskedView (0.1.1):
     - React
+  - RNDeviceInfo (5.2.1):
+    - React
   - RNFBApp (6.0.3):
     - Firebase/Core (~> 6.8.1)
     - React
@@ -371,6 +373,7 @@ DEPENDENCIES:
   - ReactNativeBeaconsManager (from `../node_modules/react-native-beacons-manager`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -460,6 +463,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-bootsplash"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
@@ -525,6 +530,7 @@ SPEC CHECKSUMS:
   ReactNativeBeaconsManager: dd0b01841445881989af5be9ab83153d1cdaa6b7
   RNBootSplash: bba8b884b667778b0fd0c34a5f909046ff0f2237
   RNCMaskedView: 6200428cc4fb088ee7ae64a648e39bd8f4e70b41
+  RNDeviceInfo: 223aea06c561ce99ae2045b621882bd7b7db1e59
   RNFBApp: 92ae594c85e82e1e68434049b2a37e1f584cf8b9
   RNFBAuth: edc2e5986b92f0dfd0076b312caf7871a1646ed8
   RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74

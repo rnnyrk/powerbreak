@@ -7,25 +7,25 @@ const IconWrapper = styled.View`
   justify-content: center;
 `;
 
-const SvgWrapper: React.FC<SvgWrapperProps> = ({ width, height, children }) => {
-  const viewBoxRatio = width / height;
-
-  return (
-    <IconWrapper>
-      <Svg
-        width={width || (height && height * viewBoxRatio)}
-        height={height || (width && width / viewBoxRatio)}
-        viewBox={`0 0 ${width} ${height}`}
-      >
-        {children}
-      </Svg>
-    </IconWrapper>
-  );
-};
+const SvgWrapper: React.FC<SvgWrapperProps> = ({
+  children, width, height, viewBox, fill
+}) => (
+  <IconWrapper>
+    <Svg
+      width={width}
+      height={height}
+      viewBox={viewBox}
+    >
+      {React.cloneElement(children, { fill })}
+    </Svg>
+  </IconWrapper>
+);
 
 type SvgWrapperProps = {
   height: number;
   width: number;
+  fill: string;
+  viewBox: string;
 }
 
 export default SvgWrapper;

@@ -31,6 +31,7 @@
     "react-native-bluetooth-state": "2.0.0",
     "react-native-bootsplash": "1.0.3",
     "react-native-config": "luggit/react-native-config#master",
+    "react-native-device-info": "^5.2.1",
     "react-native-gesture-handler": "1.5.0",
     "react-native-reanimated": "1.4.0",
     "react-native-redash": "^8.5.0",

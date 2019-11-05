@@ -6,6 +6,10 @@ import theme from 'styles/theme';
 import { Dashboard, Overview } from 'screens/general';
 import { Bolt } from 'common/svg';
 
+import { isXModel } from 'services/deviceInfo';
+
+console.log('isXModel',isXModel);
+
 const Tab = createBottomTabNavigator();
 
 const RootNavigator = () => {
@@ -18,8 +22,8 @@ const RootNavigator = () => {
         activeTintColor: theme.colors.white,
         inactiveTintColor: theme.colors.purple.light,
         style: {
-          height: 110,
-          paddingTop: 16,
+          height: isXModel() ? 100 : 55,
+          paddingTop: 8,
           paddingBottom: insets.bottom,
           backgroundColor: theme.colors.purple.dark,
         },
@@ -36,7 +40,7 @@ const RootNavigator = () => {
         component={Dashboard}
         options={{
           tabBarIcon: ({ color }) => (
-            <Bolt width={24} height={35} fill={color} />
+            <Bolt width={20} height={24} fill={color} />
           ),
         }}
       />
@@ -45,7 +49,7 @@ const RootNavigator = () => {
         component={Overview}
         options={{
           tabBarIcon: ({ color }) => (
-            <Bolt width={24} height={35} fill={color} />
+            <Bolt width={20} height={24} fill={color} />
           ),
         }}
       />
