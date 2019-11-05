@@ -3,6 +3,7 @@ import * as i from 'types';
 
 export type RootStackParamList = {
   Main: undefined;
+  ProfileModal: undefined;
   Login: {
     resetAuthToken?: boolean
   };

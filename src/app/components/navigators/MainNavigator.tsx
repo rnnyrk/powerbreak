@@ -3,12 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeArea } from 'react-native-safe-area-context';
 
 import theme from 'styles/theme';
-import { Dashboard, Overview } from 'screens/general';
-import { Bolt } from 'common/svg';
-
 import { isXModel } from 'services/deviceInfo';
-
-console.log('isXModel',isXModel);
+import { Bolt } from 'common/svg';
+import { Dashboard, Overview } from 'screens/general';
 
 const Tab = createBottomTabNavigator();
 
