@@ -26,11 +26,11 @@ Button.defaultProps = {
 }
 
 type ButtonProps = {
-  onPress: () => void;
+  onPress?: () => void;
   title: string;
   disabled?: boolean;
   loading?: boolean;
-  variant: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary';
 };
 
 export default Button;

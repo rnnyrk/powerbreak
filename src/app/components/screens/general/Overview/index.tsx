@@ -1,13 +1,43 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, { useState, useRef, memo } from 'react';
+import { useMemoOne } from 'use-memo-one';
+import Animated, { TransitioningView, Transitioning, Transition } from 'react-native-reanimated';
 
-import { Container } from 'common/general';
-import { TextContent } from 'common/typography';
+import { ScrollView, SearchBox, Trigger } from './components';
+import { OverviewContainer } from './styled';
 
-const Overview: React.FC = () => (
-  <Container>
-    <TextContent>Overview</TextContent>
-  </Container>
-);
+const { Value } = Animated;
 
-export default Overview;
+const transition = (
+  <Transition.Together>
+    <Transition.In durationMs={200} type="scale" />
+    <Transition.Out durationMs={200} type="scale" />
+  </Transition.Together>
+)
+
+export default memo(({ }) => {
+  const ref = useRef<TransitioningView>(null);
+  const [search, setSearch] = useState(false);
+
+  const translateY = useMemoOne(() => new Value(0), []);
+
+  return (
+    <OverviewContainer as={Transitioning.View} {...{ transition, ref }}>
+      <Trigger {...{ translateY }} />
+      <ScrollView
+        {...{ translateY }}
+        onPull={() => {
+          if (ref.current) {
+            ref.current.animateNextTransition();
+          }
+          setSearch(true);
+        }}
+      />
+      <SearchBox visible={search} onRequestClose={() => {
+        if (ref.current) {
+          ref.current.animateNextTransition();
+        }
+        setSearch(false);
+      }} />
+    </OverviewContainer>
+  );
+});
