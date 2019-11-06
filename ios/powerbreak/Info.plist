@@ -30,6 +30,18 @@
 				<string>com.googleusercontent.apps.46769492028-8klbgq0unj6cgacaakosc3vuhv0kmv3q</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLName</key>
+			<string>powerbreak</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>powerbreak</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

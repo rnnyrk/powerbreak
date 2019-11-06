@@ -10,13 +10,10 @@ export const configureGoogleLogin = async () => {
   });
 
   const isSignedIn = await GoogleSignin.isSignedIn();
-  console.log('isSignedIn', isSignedIn);
 
   if (isSignedIn) {
     try {
       const { accessToken, idToken } = await GoogleSignin.signInSilently();
-      console.log('accessToken, idToken', accessToken, idToken);
-
       navigate('Main');
     } catch (error) {
       console.error('error', error);

@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { NavigationContainerRef } from '@react-navigation/routers/lib/typescript/core/src';
+let _navigator;
 
-export const navigationRef = React.createRef<NavigationContainerRef>();
+export const setContainer = (navigatorRef) => {
+  _navigator = navigatorRef;
+};
 
 export const navigate = (name: string, params?: any) => {
-  navigationRef.current && navigationRef.current.navigate(name, params || {});
+  _navigator.current && _navigator.current.navigate(name, params || {});
 };

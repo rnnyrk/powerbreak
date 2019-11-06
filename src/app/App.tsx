@@ -1,29 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import RNBootSplash from 'react-native-bootsplash';
-import { NavigationNativeContainer } from '@react-navigation/native';
+import { NavigationNativeContainer, useLinking } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
 
 import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
-import { navigationRef } from 'services/navigationService';
+import { setContainer } from 'services/navigationService';
 
 import { store } from './store';
 
 const App: React.FC = () => {
   enableScreens();
 
+  const navigationRef = useRef();
+
+  const { getInitialState } = useLinking(navigationRef, {
+    prefixes: ['https://powerbreak.nl', 'powerbreak://'],
+    config: {
+      Detail: {
+        path: 'page/:id',
+        parse: {
+          id: Number,
+        },
+      },
+    },
+  });
+
+  const [isReady, setIsReady] = useState(false);
+  const [initialState, setInitialState] = useState();
+
   useEffect(() => {
+    console.log('getInitialState', getInitialState());
+
+    getInitialState()
+      .catch((error) => {
+        console.error('error getInitialState', error);
+      })
+      .then((state) => {
+        console.log('state', state);
+
+        if (state !== undefined) {
+          setInitialState(state);
+        }
+
+        setIsReady(true);
+      });
+  }, [getInitialState]);
+
+  useEffect(() => {
+    setContainer(navigationRef);
     RNBootSplash.hide({ duration: 250 });
   }, []);
+
+  if (!isReady) return null;
 
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SafeAreaProvider>
-          <NavigationNativeContainer ref={navigationRef}>
+          <NavigationNativeContainer
+            initialState={initialState}
+            ref={navigationRef}
+          >
             <RootNavigator />
           </NavigationNativeContainer>
         </SafeAreaProvider>

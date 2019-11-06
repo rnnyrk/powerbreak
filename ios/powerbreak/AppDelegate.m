@@ -12,6 +12,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <React/RCTLinkingManager.h>
 
 #import "RNBootSplash.h"
 
@@ -22,7 +23,7 @@
   if ([FIRApp defaultApp] == nil) {
     [FIRApp configure];
   }
-  
+
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"powerbreak"
@@ -37,6 +38,12 @@
   [self.window makeKeyAndVisible];
   [RNBootSplash show:@"LaunchScreen" inView:rootView];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:app openURL:url options:options];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
