@@ -21,7 +21,6 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (accessToken && resetAuthToken) {
-      console.log('test');
       navigate('Main');
     } else if (resetAuthToken) {
       dispatch(resetAuth());

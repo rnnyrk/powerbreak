@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as i from 'types';
 
 import { TextContent } from 'common/typography';
-import { Overview, Detail } from 'screens/general';
+import { Overview, Detail } from 'screens/pages';
 import theme from 'styles/theme';
 
 const Stack = createStackNavigator<i.PagesStackParams>();

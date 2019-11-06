@@ -3,12 +3,12 @@ import React from 'react';
 import { Container } from 'common/general';
 import { TextContent } from 'common/typography';
 
-const Contact: React.FC<ContactProps> = () => (
+const Step1: React.FC<Step1Props> = () => (
   <Container>
-    <TextContent>Contact</TextContent>
+    <TextContent>Step1</TextContent>
   </Container>
 );
 
-type ContactProps = {};
+type Step1Props = {};
 
-export default Contact;
+export default Step1;

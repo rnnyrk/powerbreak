@@ -14,7 +14,6 @@ export const configureGoogleLogin = async () => {
   if (isSignedIn) {
     try {
       const { accessToken, idToken } = await GoogleSignin.signInSilently();
-      console.log('test2 ');
       navigate('Main');
     } catch (error) {
       console.error('error', error);

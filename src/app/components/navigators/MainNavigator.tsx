@@ -5,12 +5,13 @@ import { useSafeArea } from 'react-native-safe-area-context';
 import theme from 'styles/theme';
 import { isXModel } from 'services/deviceInfo';
 import { Bolt } from 'common/svg';
-import { Dashboard, Contact } from 'screens/general';
+import { Dashboard } from 'screens/general';
 
+import ContactNavigator from './ContactNavigator';
 import PagesNavigator from './PagesNavigator';
 const Tab = createBottomTabNavigator();
 
-const RootNavigator = () => {
+const MainNavigator = () => {
   const insets = useSafeArea();
 
   return (
@@ -53,7 +54,7 @@ const RootNavigator = () => {
       />
       <Tab.Screen
         name="Contact"
-        component={Contact}
+        component={ContactNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />
@@ -64,4 +65,4 @@ const RootNavigator = () => {
   );
 }
 
-export default RootNavigator;
+export default MainNavigator;

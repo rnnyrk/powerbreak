@@ -16,6 +16,10 @@ export type PagesStackParams = {
   };
 };
 
+export type ContactStackParams = {
+  Step1: undefined;
+};
+
 export type LoginScreenRouteProp = RouteProp<i.RootStackParams, 'Login'>;
 
 export type DetailScreenRouteProp = RouteProp<i.PagesStackParams, 'Detail'>;
