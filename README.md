@@ -6,4 +6,5 @@
 * End-to-End testing
 * Native Forms using Formik
 * TypeScript
+* safe-areas & device-info
 
