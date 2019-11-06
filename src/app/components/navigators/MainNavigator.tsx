@@ -36,20 +36,20 @@ const RootNavigator = () => {
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
-        options={{
+        options={() => ({
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />
           ),
-        }}
+        })}
       />
       <Tab.Screen
         name="Pages"
         component={PagesNavigator}
-        options={{
+        options={() => ({
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />
           ),
-        }}
+        })}
       />
       <Tab.Screen
         name="Contact"

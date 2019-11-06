@@ -33,8 +33,6 @@ const App: React.FC = () => {
   const [initialState, setInitialState] = useState();
 
   useEffect(() => {
-    console.log('getInitialState', getInitialState());
-
     getInitialState()
       .catch((error) => {
         console.error('error getInitialState', error);

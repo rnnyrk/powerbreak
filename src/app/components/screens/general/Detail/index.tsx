@@ -17,7 +17,8 @@ const Detail: React.FC<DetailProps> = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: 'Share this Powerbreak Detail!'
+        message: 'Share this Powerbreak Detail!',
+        url: `powerbreak://page/${id}`,
       });
 
       if (result.action === Share.sharedAction) {

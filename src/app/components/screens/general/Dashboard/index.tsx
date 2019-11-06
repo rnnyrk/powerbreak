@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { DeviceEventEmitter } from 'react-native';
+import { DeviceEventEmitter, View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 // import Beacons from 'react-native-beacons-manager';
 // import BluetoothState from 'react-native-bluetooth-state';
 
+import { logoutFromGoogle } from 'services/socialLogin';
 import { Container } from 'common/general';
 import { TextContent } from 'common/typography';
-import { Button } from 'common/interaction';
+
+import { ExtendedButton } from './styled';
 
 const Dashboard: React.FC<DashboardProps> = () => {
   const [bluetoothState, setBluetoothState] = useState(false);
@@ -56,13 +58,21 @@ const Dashboard: React.FC<DashboardProps> = () => {
 
   return (
     <Container>
-      <TextContent>
-        Bluetooth connection status: {bluetoothState ? bluetoothState : 'NA'}
-      </TextContent>
-      <TextContent>
-        All beacons in the area
-      </TextContent>
-      <Button
+      <View style={{ marginBottom: 16 }}>
+        <TextContent>
+          Bluetooth connection status: {bluetoothState ? bluetoothState : 'NA'}
+        </TextContent>
+        <TextContent>
+          All beacons in the area
+        </TextContent>
+      </View>
+
+      <ExtendedButton
+        onPress={logoutFromGoogle}
+        title="Logout"
+        variant="secondary"
+      />
+      <ExtendedButton
         onPress={() => navigation.navigate('FaqModal')}
         title="View FAQ"
       />

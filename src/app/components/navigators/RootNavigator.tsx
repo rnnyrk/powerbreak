@@ -3,22 +3,11 @@ import { StatusBar, TouchableOpacity } from 'react-native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import * as i from 'types';
 
-import { logoutFromGoogle } from 'services/socialLogin';
 import { Login, Faq } from 'screens/general';
-import theme from 'styles/theme';
 import { TextContent } from 'common/typography';
 
 import MainNavigator from './MainNavigator';
 const Stack = createStackNavigator<i.RootStackParams>();
-
-const headerStyle = {
-  headerStyle: {
-    backgroundColor: theme.colors.blue.default,
-  },
-  headerTitleStyle: {
-    color: theme.colors.white,
-  },
-};
 
 const RootNavigator = () => (
   <>
@@ -32,23 +21,15 @@ const RootNavigator = () => (
         component={Login}
         initialParams={{ resetAuthToken: false }}
         options={{
-          ...headerStyle,
-          headerShown: false,
+          header: null,
         }}
       />
       <Stack.Screen
         name="Main"
         component={MainNavigator}
-        options={() => ({
-          ...headerStyle,
-          headerShown: false,
-          headerLeft: null,
-          headerRight: () => (
-            <TouchableOpacity onPress={logoutFromGoogle} style={{ paddingRight: 16 }}>
-              <TextContent>Logout</TextContent>
-            </TouchableOpacity>
-          ),
-        })}
+        options={{
+          header: null,
+        }}
       />
       <Stack.Screen
         name="FaqModal"
@@ -57,7 +38,6 @@ const RootNavigator = () => (
           ...TransitionPresets.ModalPresentationIOS,
           headerLeft: null,
           headerTitle: 'FAQ',
-          headerMode: 'screen',
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingRight: 16 }}>
               <TextContent variant="blue">Close</TextContent>
