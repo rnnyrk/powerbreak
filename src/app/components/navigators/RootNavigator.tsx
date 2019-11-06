@@ -4,7 +4,7 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 import * as i from 'types';
 
 import { logoutFromGoogle } from 'services/socialLogin';
-import { Login, Profile } from 'screens/general';
+import { Login, Faq } from 'screens/general';
 import theme from 'styles/theme';
 import { TextContent } from 'common/typography';
 
@@ -13,7 +13,7 @@ const Stack = createStackNavigator<i.RootStackParamList>();
 
 const headerStyle = {
   headerStyle: {
-    backgroundColor: theme.colors.blue,
+    backgroundColor: theme.colors.blue.default,
   },
   headerTitleStyle: {
     color: theme.colors.white,
@@ -23,7 +23,10 @@ const headerStyle = {
 const RootNavigator = () => (
   <>
     <StatusBar barStyle="dark-content" />
-    <Stack.Navigator initialRouteName="Login" mode="modal">
+    <Stack.Navigator
+      initialRouteName="Login"
+      mode="modal"
+    >
       <Stack.Screen
         name="Login"
         component={Login}
@@ -48,12 +51,13 @@ const RootNavigator = () => (
         })}
       />
       <Stack.Screen
-        name="ProfileModal"
-        component={Profile}
+        name="FaqModal"
+        component={Faq}
         options={({ navigation }) => ({
           ...TransitionPresets.ModalPresentationIOS,
           headerLeft: null,
-          headerTitle: 'Profile',
+          headerTitle: 'FAQ',
+          headerMode: 'screen',
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingRight: 16 }}>
               <TextContent variant="blue">Close</TextContent>

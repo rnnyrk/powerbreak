@@ -38,5 +38,5 @@ export const BoxButton = styled(RectButton)`
   height: 32px;
   padding: 4px 8px;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors.blue.default};
 `;

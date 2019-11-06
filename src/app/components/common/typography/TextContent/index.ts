@@ -6,7 +6,7 @@ export const TextContent = styled.Text<TextContentProps>`
   color: ${({ theme }) => theme.colors.white};
 
   ${({ variant }) => variant === 'blue' && css`
-    color: ${({ theme }) => theme.colors.blue};
+    color: ${({ theme }) => theme.colors.blue.default};
   `}
 `;
 

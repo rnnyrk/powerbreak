@@ -1,6 +1,13 @@
 export default {
   colors: {
-    blue: '#3884ff',
+    blue: {
+      default: '#3884ff',
+      rgb: {
+        r: 56,
+        g: 132,
+        b: 255,
+      },
+    },
     gray: '#dddddd',
     purple: {
       light: '#5e5e80',

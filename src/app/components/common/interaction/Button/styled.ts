@@ -8,7 +8,7 @@ export const ExtendedTouchableHighlight = styled.TouchableHighlight<ExtendedTouc
   padding: 16px;
   border-radius: 4px;
   margin-bottom: 16px;
-  background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors.blue.default};
 
   ${({ variant }) => variant === 'secondary' && css`
     border: 1px solid ${({ theme }) => theme.colors.purple.light};

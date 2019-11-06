@@ -2,8 +2,8 @@ import { RouteProp } from '@react-navigation/core';
 import * as i from 'types';
 
 export type RootStackParamList = {
+  FaqModal: undefined;
   Main: undefined;
-  ProfileModal: undefined;
   Login: {
     resetAuthToken?: boolean
   };

@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { View } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { verticalPanGestureHandler, snapPoint } from 'react-native-redash';
@@ -6,8 +6,8 @@ import { useMemoOne } from 'use-memo-one';
 import Animated from 'react-native-reanimated';
 
 import { Button } from 'common/interaction';
-import { Content } from './styled';
 
+import { Content } from './styled';
 import { THRESHOLD } from '../Trigger';
 
 const {
@@ -72,11 +72,15 @@ const withScroll = ({
     greaterOrEq(state.position, lowerBound)
   );
 
-  const config = SpringUtils.makeDefaultConfig();
+  const config = {
+    ...SpringUtils.makeDefaultConfig(),
+    toValue: new Value(0),
+  };
+
   const overscroll = sub(
     state.position,
     cond(greaterOrEq(state.position, 0), upperBound, lowerBound),
-  )
+  );
 
   return block([
     startClock(clock),
@@ -125,10 +129,11 @@ const withScroll = ({
   ]);
 };
 
-
 export default memo(({ translateY, onPull }: ScrollViewProps) => {
   const [containerHeight, setContainerHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
+
+  console.log('render', containerHeight, contentHeight);
 
   const { gestureHandler, translationY, velocityY, state } = useMemoOne(
     () => verticalPanGestureHandler(),
@@ -136,6 +141,7 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
   );
 
   useCode(
+    // @ts-ignore
     block([
       set(
         translateY,
@@ -155,27 +161,33 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
     [containerHeight, contentHeight, onPull]
   );
 
+  const onLayoutContainer = useCallback(event => {
+    const height = event.nativeEvent.layout.height;
+    setContainerHeight(height);
+  }, []);
+
+  const onLayoutContent = useCallback(event => {
+    const height = event.nativeEvent.layout.height;
+    setContentHeight(height);
+  }, []);
+
   return (
     <View
       style={{ flex: 1 }}
-      onLayout={({
-        nativeEvent: {
-          layout: { height },
-        },
-      }) => setContainerHeight(height)}
+      onLayout={onLayoutContainer}
     >
       <PanGestureHandler {...gestureHandler}>
         <Animated.View
-          onLayout={({
-            nativeEvent: {
-              layout: { height },
-            },
-          }) => setContentHeight(height)}
+          onLayout={onLayoutContent}
           style={{ transform: [{ translateY }] }}
         >
           <Content>
             {Arr.map((index) => (
-              <Button key={index} variant="secondary" title={`Overview ${index}`} />
+              <Button
+                key={index}
+                variant="secondary"
+                title={`Overview ${index}`}
+              />
             ))}
           </Content>
         </Animated.View>

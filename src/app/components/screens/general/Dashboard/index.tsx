@@ -63,8 +63,8 @@ const Dashboard: React.FC<DashboardProps> = () => {
         All beacons in the area
       </TextContent>
       <Button
-        onPress={() => navigation.navigate('ProfileModal')}
-        title="View profile"
+        onPress={() => navigation.navigate('FaqModal')}
+        title="View FAQ"
       />
     </Container>
   );

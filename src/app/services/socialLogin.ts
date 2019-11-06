@@ -8,9 +8,23 @@ export const configureGoogleLogin = async () => {
     scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     webClientId: '46769492028-npd3gi9bctscav7e2s2b5qd1a9368ul0.apps.googleusercontent.com',
   });
+
+  const isSignedIn = await GoogleSignin.isSignedIn();
+  console.log('isSignedIn', isSignedIn);
+
+  if (isSignedIn) {
+    try {
+      const { accessToken, idToken } = await GoogleSignin.signInSilently();
+      console.log('accessToken, idToken', accessToken, idToken);
+
+      navigate('Main');
+    } catch (error) {
+      console.error('error', error);
+    }
+  }
 };
 
-export const loginWithGoogle = async () => new Promise((resolve, reject) => {
+export const loginWithGoogle = () => new Promise((resolve, reject) => {
   GoogleSignin.signIn()
     .then(async ({ accessToken, idToken }) => {
       const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
@@ -24,7 +38,8 @@ export const loginWithGoogle = async () => new Promise((resolve, reject) => {
     });
 });
 
-export const logoutFromGoogle = () => new Promise((resolve, reject) => {
+export const logoutFromGoogle = () => new Promise(async (resolve, reject) => {
+  await GoogleSignin.revokeAccess();
   GoogleSignin.signOut()
     .then(() => {
       navigate('Login', { resetAuthToken: true });
