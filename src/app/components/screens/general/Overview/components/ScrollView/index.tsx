@@ -2,6 +2,7 @@ import React, { useState, useCallback, memo } from 'react';
 import { View } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { verticalPanGestureHandler, snapPoint } from 'react-native-redash';
+import { useNavigation } from '@react-navigation/core';
 import { useMemoOne } from 'use-memo-one';
 import Animated from 'react-native-reanimated';
 
@@ -132,8 +133,9 @@ const withScroll = ({
 export default memo(({ translateY, onPull }: ScrollViewProps) => {
   const [containerHeight, setContainerHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
+  const navigation = useNavigation();
 
-  console.log('render', containerHeight, contentHeight);
+  // console.log('render', containerHeight, contentHeight);
 
   const { gestureHandler, translationY, velocityY, state } = useMemoOne(
     () => verticalPanGestureHandler(),
@@ -185,8 +187,9 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
             {Arr.map((index) => (
               <Button
                 key={index}
+                onPress={() => navigation.navigate('Detail', { id: index })}
                 variant="secondary"
-                title={`Overview ${index}`}
+                title={`View page; ${index}`}
               />
             ))}
           </Content>

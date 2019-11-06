@@ -5,8 +5,9 @@ import { useSafeArea } from 'react-native-safe-area-context';
 import theme from 'styles/theme';
 import { isXModel } from 'services/deviceInfo';
 import { Bolt } from 'common/svg';
-import { Dashboard, Overview, Contact } from 'screens/general';
+import { Dashboard, Contact } from 'screens/general';
 
+import PagesNavigator from './PagesNavigator';
 const Tab = createBottomTabNavigator();
 
 const RootNavigator = () => {
@@ -42,8 +43,8 @@ const RootNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Overview"
-        component={Overview}
+        name="Pages"
+        component={PagesNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />

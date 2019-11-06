@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Text } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { User } from '@react-native-community/google-signin';
 import { useRoute } from '@react-navigation/core';
@@ -14,13 +13,13 @@ import { setAuth, resetAuth } from 'ducks/auth';
 
 const Login: React.FC = () => {
   const [init, setInit] = useState(true);
-  const route = useRoute<i.LoginScreenRouteProp>();
   const dispatch = useDispatch();
   const accessToken = useSelector((state) => state.auth.data.accessToken);
 
-  useEffect(() => {
-    const { resetAuthToken } = route.params;
+  const route = useRoute<i.LoginScreenRouteProp>();
+  const { resetAuthToken } = route.params;
 
+  useEffect(() => {
     if (accessToken && resetAuthToken) {
       navigate('Main');
     } else if (resetAuthToken) {

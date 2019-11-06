@@ -1,12 +1,21 @@
 import { RouteProp } from '@react-navigation/core';
 import * as i from 'types';
 
-export type RootStackParamList = {
+export type RootStackParams = {
   FaqModal: undefined;
   Main: undefined;
   Login: {
-    resetAuthToken?: boolean
+    resetAuthToken?: boolean;
   };
 };
 
-export type LoginScreenRouteProp = RouteProp<i.RootStackParamList, 'Login'>;
+export type PagesStackParams = {
+  Overview: undefined;
+  Detail: {
+    id?: number;
+  };
+};
+
+export type LoginScreenRouteProp = RouteProp<i.RootStackParams, 'Login'>;
+
+export type DetailScreenRouteProp = RouteProp<i.PagesStackParams, 'Detail'>;

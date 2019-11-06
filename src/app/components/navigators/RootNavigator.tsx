@@ -9,7 +9,7 @@ import theme from 'styles/theme';
 import { TextContent } from 'common/typography';
 
 import MainNavigator from './MainNavigator';
-const Stack = createStackNavigator<i.RootStackParamList>();
+const Stack = createStackNavigator<i.RootStackParams>();
 
 const headerStyle = {
   headerStyle: {
