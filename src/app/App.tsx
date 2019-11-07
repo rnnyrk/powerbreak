@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Linking, Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import RNBootSplash from 'react-native-bootsplash';
@@ -34,9 +35,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     getInitialState()
-      .catch((error) => {
-        console.error('error getInitialState', error);
-      })
+      .catch((error) => console.error('error getInitialState', error))
       .then((state) => {
         console.log('state', state);
 
@@ -49,6 +48,10 @@ const App: React.FC = () => {
   }, [getInitialState]);
 
   useEffect(() => {
+    Linking.getInitialURL()
+      .then((result) => console.log('getInitialURL result', result))
+      .catch((error) => console.error('error getInitialURL', error));
+
     setContainer(navigationRef);
     RNBootSplash.hide({ duration: 250 });
   }, []);
