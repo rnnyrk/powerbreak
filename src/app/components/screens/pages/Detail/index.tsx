@@ -40,7 +40,7 @@ const Detail: React.FC<DetailProps> = () => {
       <TextContent>Detail for page with id; {id}</TextContent>
       <TouchableWithoutFeedback onPress={onShare}>
         <ShareWrapper>
-          <ShareIcon width={25} height={25} fill={theme.colors.white} />
+          <ShareIcon width={25} height={25} fill={theme.colors.white.default} />
         </ShareWrapper>
       </TouchableWithoutFeedback>
     </Container>

@@ -12,7 +12,7 @@ const headerStyle = {
     backgroundColor: theme.colors.blue.default,
   },
   headerTitleStyle: {
-    color: theme.colors.white,
+    color: theme.colors.white.default,
   },
 };
 

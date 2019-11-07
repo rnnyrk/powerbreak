@@ -14,7 +14,12 @@ export default {
       default: '#3e3e54',
       dark: '#1f1f2e',
     },
-    white: '#ffffff',
+    red: {
+      default: '#ff3838',
+    },
+    white: {
+      default: '#ffffff',
+    },
   },
   fonts: {
     regular: 'Helvetica',

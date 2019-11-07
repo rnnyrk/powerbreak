@@ -18,7 +18,7 @@ const MainNavigator = () => {
     <Tab.Navigator
       initialRouteName="Dashboard"
       tabBarOptions={{
-        activeTintColor: theme.colors.white,
+        activeTintColor: theme.colors.white.default,
         inactiveTintColor: theme.colors.purple.light,
         style: {
           height: isXModel() ? 100 : 55,

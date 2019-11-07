@@ -1,21 +1,28 @@
 import React from 'react';
+import { FieldRenderProps } from "react-final-form";
 
-import { Fieldset } from 'common/form';
+import theme from 'styles/theme';
+import { Error, Fieldset } from 'common/form';
 
 import { TextInputField } from './styled';
 
-const TextInput: React.FC<TextInputProps> = ({ ...props }) => {
+const TextInput: React.FC<TextInputProps> = ({ input, meta, ...props }) => {
   return (
     <Fieldset>
-      <TextInputField {...props} />
+      <TextInputField
+        {...props}
+        {...input}
+        placeholderTextColor={theme.colors.purple.light}
+      />
+      <Error name={input.name} />
     </Fieldset>
   );
 };
 
-type TextInputProps = {
+type TextInputProps = FieldRenderProps<string, any> & {
   label?: string;
-  type?: string;
   id?: string;
+  placeholder?: string;
 };
 
 export default TextInput;

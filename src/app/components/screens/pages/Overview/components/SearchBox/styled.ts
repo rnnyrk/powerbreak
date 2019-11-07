@@ -30,7 +30,7 @@ export const BoxView = styled.View`
   margin: 64px 32px 0;
   padding: 16px;
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white.default};
 `;
 
 export const BoxButton = styled(RectButton)`

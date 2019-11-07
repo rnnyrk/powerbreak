@@ -12,6 +12,8 @@ type FormValues = {
   email: string;
 };
 
+const required = (value: string) => (value ? undefined : 'Required')
+
 const Step1: React.FC<Step1Props> = () => {
   const initialValues: FormValues = {
     firstName: '',
@@ -32,10 +34,23 @@ const Step1: React.FC<Step1Props> = () => {
         initialValues={initialValues}
         render={({ handleSubmit, values }) => (
           <FormWrapper>
-            <Field name="firstName">
-              {(props) => (
-                <TextInput {...props.input} />
-              )}
+            <Field<string>
+              name="firstName"
+              validate={required}
+            >
+              {(props) => <TextInput {...props} placeholder="First name" />}
+            </Field>
+            <Field<string>
+              name="lastName"
+              validate={required}
+            >
+              {(props) => <TextInput {...props} placeholder="Last name" />}
+            </Field>
+            <Field<string>
+              name="email"
+              validate={required}
+            >
+              {(props) => <TextInput {...props} placeholder="Email address" />}
             </Field>
             <Button title="Submit" onPress={handleSubmit} />
           </FormWrapper>
