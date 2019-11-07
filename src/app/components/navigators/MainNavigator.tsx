@@ -59,6 +59,7 @@ const MainNavigator = () => {
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />
           ),
+          tabBarTestID: 'contactScreen',
         }}
       />
     </Tab.Navigator>

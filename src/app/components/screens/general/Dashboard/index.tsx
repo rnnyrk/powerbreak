@@ -75,6 +75,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
       <ExtendedButton
         onPress={() => navigation.navigate('FaqModal')}
         title="View FAQ"
+        testID="faqButton"
       />
     </Container>
   );

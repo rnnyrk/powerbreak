@@ -38,6 +38,15 @@ const App: React.FC = () => {
       .catch((error) => console.error('error getInitialState', error))
       .then((state) => {
         console.log('state', state);
+        if(state){
+          const names = state.routes.map((route) => {
+            return `${route.name}, ${JSON.stringify(route.params)}`
+          });
+
+          // Alert.alert(names.join(','));
+        } else {
+          // Alert.alert(state === undefined ? 'No state' : 'test');
+        }
 
         if (state !== undefined) {
           setInitialState(state);
@@ -49,8 +58,14 @@ const App: React.FC = () => {
 
   useEffect(() => {
     Linking.getInitialURL()
-      .then((result) => console.log('getInitialURL result', result))
-      .catch((error) => console.error('error getInitialURL', error));
+      .then((url) => {
+        // if (url) {
+        //   Alert.alert(`Initial url is: ${url}`);
+        // } else {
+        //   Alert.alert('No initial url');
+        // }
+      })
+      .catch((err) => console.error('An error occurred', err));
 
     setContainer(navigationRef);
     RNBootSplash.hide({ duration: 250 });

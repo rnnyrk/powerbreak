@@ -53,6 +53,12 @@ const Login: React.FC = () => {
         title="Login with Google"
         variant="secondary"
       />
+      <Button
+        onPress={() => navigate('Main')}
+        title="e2e login"
+        variant="secondary"
+        testID="e2eButton"
+      />
     </Container>
   ) : null;
 };

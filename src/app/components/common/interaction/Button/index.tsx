@@ -1,4 +1,5 @@
 import React from 'react';
+import * as i from 'types';
 
 import theme from 'styles/theme';
 import { TextContent } from 'common/typography';
@@ -6,7 +7,7 @@ import { TextContent } from 'common/typography';
 import { ExtendedTouchableHighlight } from './styled';
 
 const Button: React.FC<ButtonProps> = ({
-  onPress, disabled, loading, title, variant
+  onPress, disabled, loading, title, variant, testID
 }) => (
   <ExtendedTouchableHighlight
     onPress={onPress}
@@ -14,6 +15,7 @@ const Button: React.FC<ButtonProps> = ({
     disabled={disabled || loading}
     loading={loading}
     variant={variant}
+    testID={testID}
   >
     <TextContent>{title}</TextContent>
   </ExtendedTouchableHighlight>
@@ -25,7 +27,7 @@ Button.defaultProps = {
   variant: 'primary',
 }
 
-type ButtonProps = {
+type ButtonProps = i.TestProps & {
   onPress?: () => void;
   title: string;
   disabled?: boolean;
