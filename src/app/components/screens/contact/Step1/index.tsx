@@ -7,6 +7,7 @@ import { TextInput, FormWrapper } from 'common/form';
 import { TextContent } from 'common/typography';
 
 import Success from '../Success';
+import Transitions from '../Transitions';
 
 type FormValues = {
   firstName: string;
@@ -31,9 +32,9 @@ const Step1: React.FC<Step1Props> = () => {
 
   return (
     <Container>
-      <TextContent>Step1</TextContent>
 
-      <Success />
+      {/* <Success /> */}
+      <Transitions />
 
       {/* <Form
         onSubmit={onHandleSubmit}
