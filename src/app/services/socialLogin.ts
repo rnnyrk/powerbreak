@@ -31,7 +31,7 @@ export const loginWithGoogle = () => new Promise((resolve, reject) => {
       resolve();
     })
     .catch((error) => {
-      reject(error)
+      reject(error);
     });
 });
 

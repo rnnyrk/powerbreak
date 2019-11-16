@@ -44,12 +44,18 @@ const Login: React.FC = () => {
     }
   };
 
+  const handleLogin = () => {
+    loginWithGoogle()
+      .then((result) => console.log('login result', result))
+      .catch((error) => console.error('login error', error))
+  }
+
   if (init) return null;
 
   return !accessToken ? (
     <Container>
       <Button
-        onPress={loginWithGoogle}
+        onPress={handleLogin}
         title="Login with Google"
         variant="secondary"
       />

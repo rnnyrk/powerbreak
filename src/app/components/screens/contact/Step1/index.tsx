@@ -1,10 +1,12 @@
-import React from 'react';
-import { Form, Field } from 'react-final-form'
+import React, { useState } from 'react';
+import { Form, Field } from 'react-final-form';
 
 import { Container } from 'common/general';
 import { Button } from 'common/interaction';
 import { TextInput, FormWrapper } from 'common/form';
 import { TextContent } from 'common/typography';
+
+import Success from '../Success';
 
 type FormValues = {
   firstName: string;
@@ -12,24 +14,28 @@ type FormValues = {
   email: string;
 };
 
-const required = (value: string) => (value ? undefined : 'Required')
+const required = (value: string) => value ? undefined : 'Required';
 
 const Step1: React.FC<Step1Props> = () => {
+
   const initialValues: FormValues = {
     firstName: '',
     lastName: '',
     email: '',
-   };
+  };
 
-   const onHandleSubmit = (values: FormValues) => {
-    console.log(JSON.stringify(values, null, 2));
-   };
+  const onHandleSubmit = (values: FormValues) => {
+    // console.log(JSON.stringify(values, null, 2));
+  };
+
 
   return (
     <Container>
       <TextContent>Step1</TextContent>
 
-      <Form
+      <Success />
+
+      {/* <Form
         onSubmit={onHandleSubmit}
         initialValues={initialValues}
         render={({ handleSubmit, values }) => (
@@ -52,10 +58,11 @@ const Step1: React.FC<Step1Props> = () => {
             >
               {(props) => <TextInput {...props} placeholder="Email address" />}
             </Field>
+
             <Button title="Submit" onPress={handleSubmit} />
           </FormWrapper>
         )}
-      />
+      /> */}
     </Container>
   );
 }
