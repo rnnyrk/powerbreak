@@ -1,26 +1,9 @@
 import React, { useState, useRef } from 'react';
-import Animated, { Transition, TransitioningView } from 'react-native-reanimated';
-import { useMemoOne } from 'use-memo-one';
+import { Transition, TransitioningView } from 'react-native-reanimated';
 
 import { Button } from 'common/interaction';
 
 import { TransitionsContainer, TransitionsCard, CardContainer } from './styled';
-const {
-  Value,
-  set,
-  cond,
-  not,
-  block,
-  add,
-  eq,
-  Clock,
-  clockRunning,
-  stopClock,
-  startClock,
-  Extrapolate,
-  interpolate,
-  useCode,
-} = Animated;
 
 const layouts: VariantProps[] = ['column', 'row', 'wrap'];
 
@@ -53,18 +36,16 @@ const Transitions: React.FC<TransitionsProps> = () => {
               if (ref.current) {
                 ref.current.animateNextTransition();
               }
-
               setState(item)
             }}
           />
         )
       })}
-
     </TransitionsContainer>
   );
 }
 
-type VariantProps = 'column' | 'row' | 'wrap';;
+type VariantProps = 'column' | 'row' | 'wrap';
 
 type TransitionsProps = {};
 
