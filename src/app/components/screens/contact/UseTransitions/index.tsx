@@ -14,7 +14,7 @@ const transformOrigin = -1 * (width / 2 - 64);
 const { not, multiply, interpolate, concat } = Animated;
 
 const UseTransitions: React.FC<UseTransitionsProps> = () => {
-  const [toggle, setToggle] = useState<0 | 1>(0);
+  const [toggle, setToggle] = useState<0 | 1>(1);
   const transition = useTransition(toggle, not(toggle), toggle);
 
   return (
@@ -52,7 +52,7 @@ const UseTransitions: React.FC<UseTransitionsProps> = () => {
       })}
 
       <Button
-        title={toggle ? 'Reset' : 'Start'}
+        title={toggle ? 'Open' : 'Close'}
         onPress={() => setToggle(toggle ^ 1)}
       />
     </UseTransitionsContainer>
