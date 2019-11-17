@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
+import { useTransition } from 'react-native-redash';
+import Animated from 'react-native-reanimated';
 
 import { Button } from 'common/interaction';
 
-import { UseTransitionsContainer, UseTransitionsCard, UseTransitionsCardContainer } from './styled';
+import {
+  UseTransitionsContainer, UseTransitionsCard, UseTransitionsCardContainer
+} from './styled';
 
 const { width } = Dimensions.get('window');
 const transformOrigin = -1 * (width / 2 - 64);
+const { not, multiply, interpolate, concat } = Animated;
 
 const UseTransitions: React.FC<UseTransitionsProps> = () => {
   const [toggle, setToggle] = useState<0 | 1>(0);
+  const transition = useTransition(toggle, not(toggle), toggle);
 
   return (
     <UseTransitionsContainer>
@@ -21,7 +27,12 @@ const UseTransitions: React.FC<UseTransitionsProps> = () => {
           direction = 1;
         }
 
-        const rotate = direction * (toggle ? 30 : 0);
+        // You can't use * / + - etc. since those live on the JS thread
+        // instead use reanimated functions to sum since that's UI thread
+        const rotate = multiply(direction, interpolate(transition, {
+          inputRange: [0, 1],
+          outputRange: [0, 30],
+        }));
 
         return (
           <UseTransitionsCardContainer
@@ -29,7 +40,8 @@ const UseTransitions: React.FC<UseTransitionsProps> = () => {
             style={{
               transform: [
                 { translateX: transformOrigin },
-                { rotate: `${rotate}deg` },
+                // Same goes for concat instead of `${rotate}deg`
+                { rotate: concat(rotate, 'deg') },
                 { translateX: -transformOrigin },
               ]
             }}
