@@ -13,7 +13,7 @@ const RootNavigator = () => (
   <>
     <StatusBar barStyle="dark-content" />
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Main"
       mode="modal"
     >
       <Stack.Screen
@@ -21,14 +21,14 @@ const RootNavigator = () => (
         component={Login}
         initialParams={{ resetAuthToken: false }}
         options={{
-          header: null,
+          header: () => null,
         }}
       />
       <Stack.Screen
         name="Main"
         component={MainNavigator}
         options={{
-          header: null,
+          header: () => null,
         }}
       />
       <Stack.Screen
