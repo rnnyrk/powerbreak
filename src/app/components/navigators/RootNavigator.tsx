@@ -7,6 +7,7 @@ import { Login, Faq } from 'screens/general';
 import { TextContent } from 'common/typography';
 
 import MainNavigator from './MainNavigator';
+import theme from 'styles/theme';
 const Stack = createStackNavigator<i.RootStackParams>();
 
 const RootNavigator = () => (
@@ -36,8 +37,14 @@ const RootNavigator = () => (
         component={Faq}
         options={({ navigation }) => ({
           ...TransitionPresets.ModalPresentationIOS,
-          headerLeft: null,
           headerTitle: 'FAQ',
+          headerTitleStyle: {
+            color: theme.colors.white.default,
+          },
+          headerStyle: {
+            backgroundColor: theme.colors.blue.default
+          },
+          headerLeft: () => null,
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingRight: 16 }}>
               <TextContent variant="blue">Close</TextContent>
