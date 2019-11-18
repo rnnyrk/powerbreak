@@ -7,7 +7,7 @@ import { isXModel } from 'services/deviceInfo';
 import { Bolt } from 'common/svg';
 import { Dashboard } from 'screens/general';
 
-import ContactNavigator from './ContactNavigator';
+import AnimationsNavigator from './AnimationsNavigator';
 import PagesNavigator from './PagesNavigator';
 const Tab = createBottomTabNavigator();
 
@@ -53,13 +53,13 @@ const MainNavigator = () => {
         })}
       />
       <Tab.Screen
-        name="Contact"
-        component={ContactNavigator}
+        name="Animations"
+        component={AnimationsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Bolt width={20} height={24} fill={color} />
           ),
-          tabBarTestID: 'contactScreen',
+          tabBarTestID: 'animationsScreen',
         }}
       />
     </Tab.Navigator>

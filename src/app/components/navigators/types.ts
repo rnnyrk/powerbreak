@@ -16,8 +16,8 @@ export type PagesStackParams = {
   };
 };
 
-export type ContactStackParams = {
-  Step1: undefined;
+export type AnimationsStackParams = {
+  Index: undefined;
 };
 
 export type LoginScreenRouteProp = RouteProp<i.RootStackParams, 'Login'>;

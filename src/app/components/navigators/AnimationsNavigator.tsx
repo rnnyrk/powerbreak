@@ -2,10 +2,10 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as i from 'types';
 
-import { Step1 } from 'screens/contact';
+import { Index } from 'screens/animations';
 import theme from 'styles/theme';
 
-const Stack = createStackNavigator<i.ContactStackParams>();
+const Stack = createStackNavigator<i.AnimationsStackParams>();
 
 const headerStyle = {
   headerStyle: {
@@ -16,18 +16,21 @@ const headerStyle = {
   },
 };
 
-const ContactNavigator = () => (
+const AnimationsNavigator = () => (
   <Stack.Navigator
-    initialRouteName="Step1"
+    initialRouteName="Index"
     screenOptions={{
       ...headerStyle
     }}
   >
     <Stack.Screen
-      name="Step1"
-      component={Step1}
+      name="Index"
+      component={Index}
+      options={() => ({
+        headerTitle: 'Animations',
+      })}
     />
   </Stack.Navigator>
 );
 
-export default ContactNavigator;
+export default AnimationsNavigator;
