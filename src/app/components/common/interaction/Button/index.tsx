@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
     variant={variant}
     testID={testID}
   >
-    <TextContent>{title}</TextContent>
+    <TextContent variant="white">{title}</TextContent>
   </ExtendedTouchableHighlight>
 );
 
