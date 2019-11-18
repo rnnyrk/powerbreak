@@ -26,4 +26,5 @@ export default {
   fonts: {
     regular: 'Helvetica',
   },
+  isDarkMode: false,
 };

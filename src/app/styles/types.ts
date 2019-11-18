@@ -1,11 +1,7 @@
 import * as i from 'types';
 import theme from './theme';
 
-export type DarkModeType = {
-  isDarkMode?: boolean;
-}
-
-export type BaseStyled = DarkModeType & {
+export type BaseStyled = {
   theme?: typeof theme;
   className?: string;
 }

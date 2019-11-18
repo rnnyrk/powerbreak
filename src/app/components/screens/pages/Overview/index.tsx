@@ -1,6 +1,6 @@
 import React, { useState, useRef, memo } from 'react';
 import { useMemoOne } from 'use-memo-one';
-import Animated, { TransitioningView, Transitioning, Transition } from 'react-native-reanimated';
+import Animated, { TransitioningView, Transition } from 'react-native-reanimated';
 
 import { ScrollView, SearchBox, Trigger } from './components';
 import { OverviewContainer } from './styled';
@@ -21,7 +21,7 @@ export default memo(({ }) => {
   const translateY = useMemoOne(() => new Value(0), []);
 
   return (
-    <OverviewContainer as={Transitioning.View} {...{ transition, ref }}>
+    <OverviewContainer {...{ transition, ref }}>
       <Trigger {...{ translateY }} />
       <ScrollView
         {...{ translateY }}

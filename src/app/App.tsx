@@ -5,7 +5,7 @@ import RNBootSplash from 'react-native-bootsplash';
 import { NavigationNativeContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
-import { DarkModeProvider } from 'react-native-dark-mode';
+import { useDarkMode, DarkModeProvider } from 'react-native-dark-mode';
 
 import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
@@ -16,6 +16,7 @@ import { store } from './store';
 const App: React.FC = () => {
   enableScreens();
 
+  const isDarkMode = useDarkMode();
   const navigationRef = useRef();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{ ...theme, isDarkMode }}>
         <SafeAreaProvider>
           <DarkModeProvider>
             <NavigationNativeContainer ref={navigationRef}>
