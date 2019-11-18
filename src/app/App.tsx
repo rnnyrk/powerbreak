@@ -14,6 +14,7 @@ import { store } from './store';
 
 const App: React.FC = () => {
   enableScreens();
+
   const navigationRef = useRef();
 
   useEffect(() => {
@@ -25,10 +26,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SafeAreaProvider>
-          <NavigationNativeContainer
-            // initialState={initialState}
-            ref={navigationRef}
-          >
+          <NavigationNativeContainer ref={navigationRef}>
             <RootNavigator />
           </NavigationNativeContainer>
         </SafeAreaProvider>
@@ -38,6 +36,8 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+// initialState={initialState}
 
 // import { Linking, Alert } from 'react-native';
 // import { NavigationNativeContainer, useLinking } from '@react-navigation/native';
