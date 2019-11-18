@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { useDarkMode } from 'react-native-dark-mode';
@@ -6,7 +6,6 @@ import { useDarkMode } from 'react-native-dark-mode';
 import { logoutFromGoogle } from 'services/socialLogin';
 import { Container } from 'common/general';
 import { TextContent } from 'common/typography';
-
 
 import { ExtendedButton } from './styled';
 
@@ -18,7 +17,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     <Container>
       <View style={{ marginBottom: 16 }}>
         <TextContent>
-          isDarkMode: {isDarkMode}
+          isDarkMode: {isDarkMode ? 'Yes' : 'No'}
         </TextContent>
       </View>
 

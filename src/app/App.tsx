@@ -5,6 +5,7 @@ import RNBootSplash from 'react-native-bootsplash';
 import { NavigationNativeContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
+import { DarkModeProvider } from 'react-native-dark-mode';
 
 import theme from 'styles/theme';
 import RootNavigator from 'navigators/RootNavigator';
@@ -26,9 +27,11 @@ const App: React.FC = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SafeAreaProvider>
-          <NavigationNativeContainer ref={navigationRef}>
-            <RootNavigator />
-          </NavigationNativeContainer>
+          <DarkModeProvider>
+            <NavigationNativeContainer ref={navigationRef}>
+              <RootNavigator />
+            </NavigationNativeContainer>
+          </DarkModeProvider>
         </SafeAreaProvider>
       </ThemeProvider>
     </Provider>
