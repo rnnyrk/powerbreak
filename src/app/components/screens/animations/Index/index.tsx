@@ -2,19 +2,19 @@ import React from 'react';
 
 import { Container } from 'common/general';
 
-// import Form from '../Form';
 // import Success from '../Success';
 // import Transitions from '../Transitions';
-import UseTransitions from '../UseTransitions';
+// import UseTransitions from '../UseTransitions';
+import TransitioningForm from '../TransitioningForm';
 
 // <Success />
-// <Form />
 // <Transitions />
+// <UseTransitions />
 
 const Step1: React.FC<Step1Props> = () => {
   return (
     <Container>
-      <UseTransitions />
+      <TransitioningForm />
     </Container>
   );
 }
