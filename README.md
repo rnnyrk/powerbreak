@@ -3,8 +3,9 @@
 * Social Login via Google
 * Dynamic Linking
 * React Navigation v5
-* End-to-End testing
-* Native Forms using Formik
+* End-to-End testing using `detox`
+* Native Forms using `final-form`
 * TypeScript
-* safe-areas & device-info
+* `react-native-device-info`
+* `react-native-safe-area-context`
 
