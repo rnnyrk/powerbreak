@@ -15,9 +15,7 @@ export const SuccessContainer = styled.View`
   align-items: center;
 `;
 
-// export const SuccessContent = styled.View`
 export const SuccessContent = styled(Animated.View)`
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
