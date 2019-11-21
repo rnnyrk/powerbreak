@@ -5,16 +5,13 @@ import { Container } from 'common/general';
 // import Success from '../Success';
 // import Transitions from '../Transitions';
 // import UseTransitions from '../UseTransitions';
-import TransitioningForm from '../TransitioningForm';
-
-// <Success />
-// <Transitions />
-// <UseTransitions />
+// import TransitioningForm from '../TransitioningForm';
+import Timing from '../Timing';
 
 const Step1: React.FC<Step1Props> = () => {
   return (
     <Container>
-      <TransitioningForm />
+      <Timing />
     </Container>
   );
 }
