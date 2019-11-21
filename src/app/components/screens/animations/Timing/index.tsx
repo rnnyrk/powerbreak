@@ -3,7 +3,17 @@ import Animated from 'react-native-reanimated';
 
 import { TimingContainer, Bubble } from './styled';
 
-const { Value, interpolate, Extrapolate, useCode, block } = Animated;
+const {
+  Value,
+  interpolate,
+  Extrapolate,
+  useCode,
+  block,
+  set,
+  stopClock,
+  startClock,
+  clockRunning,
+} = Animated;
 
 const Timing: React.FC<TimingProps> = () => {
   const progress = new Value(0);
