@@ -23,15 +23,15 @@ export const UseTransitionsCard = styled.View<UseTransitionsCardProps>`
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.blue.light};
 
-  ${(props) => props.cardNumb === 0 && css`
-    background-color: ${({ theme }) => theme.colors.blue.dark};
+  ${({ cardNumb, theme }) => cardNumb === 0 && css`
+    background-color: ${theme.colors.blue.dark};
   `};
 
-  ${(props) => props.cardNumb === 2 && css`
-    background-color: ${({ theme }) => theme.colors.blue.default};
+  ${({ cardNumb, theme }) => cardNumb === 2 && css`
+    background-color: ${theme.colors.blue.default};
   `};
 `;
 
 type UseTransitionsCardProps = {
   cardNumb: number;
-}
+};
