@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { useTransition } from 'react-native-redash';
 import Animated from 'react-native-reanimated';
 
-import { TextContent } from 'common/typography';
+import { TimingContainer, Bubble } from './styled';
 
-import { TimingContainer } from './styled';
+const { Value } = Animated;
 
 const Timing: React.FC<TimingProps> = () => {
+  const progress = new Value(0);
 
   return (
     <TimingContainer>
-      <TextContent>Timing</TextContent>
+      {Array.from({ length: 3 }).map((_, index) => {
+        return (
+          <Bubble
+            key={`bubble_${index}`}
+          />
+        )
+      })}
     </TimingContainer>
   );
 }
