@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 export const ExtendedTouchableHighlight = styled(TouchableHighlight)<ExtendedTouchableHighlightProps>`
   align-items: center;
   justify-content: center;
-  width: 100%;
+  min-width: 100%;
   height: 56px;
   padding: 16px;
   border-radius: 4px;

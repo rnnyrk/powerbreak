@@ -5,6 +5,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
   padding: 32px;
+  width: 100%;
   background-color: ${({ theme }) => theme.isDarkMode
     ? theme.colors.purple.default
     : theme.colors.white.default};
