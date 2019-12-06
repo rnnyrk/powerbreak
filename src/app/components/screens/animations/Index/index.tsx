@@ -6,7 +6,7 @@ import { TextContent } from 'common/typography';
 
 import { AnimationLinkItem } from './styled';
 
-const Step1: React.FC<Step1Props> = () => {
+const Index: React.FC<IndexProps> = () => {
   const navigation = useNavigation();
 
   return (
@@ -34,6 +34,6 @@ const Step1: React.FC<Step1Props> = () => {
   );
 };
 
-type Step1Props = {};
+type IndexProps = {};
 
-export default Step1;
+export default Index;
