@@ -40,7 +40,7 @@ const Success: React.FC<SuccessProps> = () => {
     clock: new Clock(),
     time: new Value(0),
     progress: new Value(0),
-   }), []);
+  }), []);
 
   const opacity = interpolate(progress, {
     inputRange: [0, 1],
@@ -50,7 +50,7 @@ const Success: React.FC<SuccessProps> = () => {
 
   // declare animation instruction for every frame (is you don't pass a dependency)
   useCode(
-    block([
+    () => block([
       // 1. if clock not running
       // start the clock and save original clock value in time
       cond(not(clockRunning(clock)), [
@@ -78,7 +78,7 @@ const Success: React.FC<SuccessProps> = () => {
       <Button title={show ? 'Hide' : 'Show'} onPress={() => setShow((prev) => !prev)} />
     </SuccessContainer>
   );
-}
+};
 
 type SuccessProps = {};
 
