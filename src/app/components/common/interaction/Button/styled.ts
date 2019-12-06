@@ -1,6 +1,8 @@
+import { TouchableHighlight } from 'react-native-gesture-handler';
+import { TouchableHighlightProperties } from 'react-native';
 import styled, { css } from 'styled-components';
 
-export const ExtendedTouchableHighlight = styled.TouchableHighlight<ExtendedTouchableHighlightProps>`
+export const ExtendedTouchableHighlight = styled(TouchableHighlight)<ExtendedTouchableHighlightProps>`
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -16,7 +18,7 @@ export const ExtendedTouchableHighlight = styled.TouchableHighlight<ExtendedTouc
   `}
 `;
 
-type ExtendedTouchableHighlightProps = {
+type ExtendedTouchableHighlightProps = TouchableHighlightProperties & {
   disabled?: boolean;
   loading?: boolean;
   variant?: 'primary' | 'secondary';
