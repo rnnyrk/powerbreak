@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import Animated from 'react-native-reanimated';
+import styled, { css } from 'styled-components';
 
 export const UseTransitionsContainer = styled.View`
   width: 100%;
