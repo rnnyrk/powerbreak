@@ -1,7 +1,7 @@
 import { firebase } from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-community/google-signin';
 
-import { navigate } from 'services/navigationService';
+import { navigate } from 'services/NavigationService';
 
 export const configureGoogleLogin = async () => {
   GoogleSignin.configure({
@@ -44,6 +44,6 @@ export const logoutFromGoogle = () => new Promise(async (resolve, reject) => {
     })
     .catch((error) => {
       console.error(error);
-      reject(error)
+      reject(error);
     });
 });

@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/core';
 import * as i from 'types';
 
 import { configureGoogleLogin, loginWithGoogle } from 'services/socialLogin';
-import { navigate } from 'services/navigationService';
+import { navigate } from 'services/NavigationService';
 import { useSelector, useDispatch } from 'services/hooks';
 import { Button } from 'common/interaction';
 import { Container } from 'common/general';
@@ -25,14 +25,7 @@ const Login: React.FC = () => {
     } else if (resetAuthToken) {
       dispatch(resetAuth());
     }
-  }, [accessToken]);
-
-  useEffect(() => {
-    configureGoogleLogin();
-
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
-  }, []);
+  }, [accessToken, dispatch, resetAuthToken]);
 
   const onAuthStateChanged = (user: User | null) => {
     if (user) {
@@ -44,11 +37,18 @@ const Login: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    configureGoogleLogin();
+
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, [onAuthStateChanged]);
+
   const handleLogin = () => {
     loginWithGoogle()
-      .then((result) => console.log('login result', result))
-      .catch((error) => console.error('login error', error))
-  }
+      .then((result) => console.info('login result', result))
+      .catch((error) => console.error('login error', error));
+  };
 
   if (init) return null;
 
