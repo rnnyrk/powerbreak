@@ -8,7 +8,7 @@ import { Accordion } from 'common/interaction';
 const Faq: React.FC<FaqProps> = () => (
   <ScrollView style={{ backgroundColor: theme.colors.purple.default }}>
     <Container testID="faqModal">
-      {Array.from({ length: 25 }).map((index) => (
+      {Array.from({ length: 25 }).map((_, index) => (
         <Accordion
           key={`accrodion_${index}`}
           title={`Question ${index}`}

@@ -36,13 +36,13 @@ const Timing: React.FC<TimingProps> = () => {
         return (
           <Bubble
             key={`bubble_${index}`}
-            style={{ transform: [{ scale }]}}
+            style={{ transform: [{ scale }] }}
           />
-        )
+        );
       })}
     </TimingContainer>
   );
-}
+};
 
 type TimingProps = {};
 

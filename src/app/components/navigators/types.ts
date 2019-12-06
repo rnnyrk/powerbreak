@@ -18,6 +18,11 @@ export type PagesStackParams = {
 
 export type AnimationsStackParams = {
   Index: undefined;
+  Success: undefined;
+  Timing: undefined;
+  TransitioningForm: undefined;
+  Transitions: undefined;
+  UseTransitions: undefined;
 };
 
 export type LoginScreenRouteProp = RouteProp<i.RootStackParams, 'Login'>;
