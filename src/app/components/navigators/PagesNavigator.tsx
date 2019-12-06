@@ -22,7 +22,7 @@ const PagesNavigator = () => (
   <Stack.Navigator
     initialRouteName="Overview"
     screenOptions={{
-      ...headerStyle
+      ...headerStyle,
     }}
   >
     <Stack.Screen

@@ -64,6 +64,6 @@ const MainNavigator = () => {
       />
     </Tab.Navigator>
   );
-}
+};
 
 export default MainNavigator;
