@@ -1,5 +1,5 @@
-import * as i from 'types';
 import { ThunkAction as IThunkAction, ThunkDispatch as IThunkDispatch } from 'redux-thunk';
+import * as i from 'types';
 
 /*
   Shape of a Redux action
@@ -28,4 +28,3 @@ export type ThunkDispatch = IThunkDispatch<i.ReduxState, any, i.Action>;
   ReturnType = return type of function
 */
 export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, {}, i.Action>;
-

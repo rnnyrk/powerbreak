@@ -5,4 +5,3 @@ export const isIphone = Platform.OS === 'ios';
 export const isAndroid = Platform.OS === 'android';
 
 export const isXModel = () => isIphone && DeviceInfo.hasNotch();
-
