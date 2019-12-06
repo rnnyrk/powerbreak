@@ -15,10 +15,6 @@ const Step1: React.FC<Step1Props> = () => {
         <TextContent variant="white">Success</TextContent>
       </AnimationLinkItem>
 
-      <AnimationLinkItem onPress={() => navigation.navigate('Timing')}>
-        <TextContent variant="white">Timing</TextContent>
-      </AnimationLinkItem>
-
       <AnimationLinkItem onPress={() => navigation.navigate('TransitioningForm')}>
         <TextContent variant="white">TransitioningForm</TextContent>
       </AnimationLinkItem>
@@ -29,6 +25,10 @@ const Step1: React.FC<Step1Props> = () => {
 
       <AnimationLinkItem onPress={() => navigation.navigate('UseTransitions')}>
         <TextContent variant="white">UseTransitions</TextContent>
+      </AnimationLinkItem>
+
+      <AnimationLinkItem onPress={() => navigation.navigate('Timing')}>
+        <TextContent variant="white">Timing</TextContent>
       </AnimationLinkItem>
     </Container>
   );

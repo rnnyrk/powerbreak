@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Animated from 'react-native-reanimated';
+import styled from 'styled-components';
 
 export const TimingContainer = styled.View`
   width: 100%;
