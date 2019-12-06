@@ -12,9 +12,9 @@ const transition = (
     <Transition.In durationMs={200} type="scale" />
     <Transition.Out durationMs={200} type="scale" />
   </Transition.Together>
-)
+);
 
-export default memo(({ }) => {
+export default memo(() => {
   const ref = useRef<TransitioningView>(null);
   const [search, setSearch] = useState(false);
 

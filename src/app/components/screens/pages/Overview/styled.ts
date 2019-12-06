@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Transitioning, TransitioningViewProps } from 'react-native-reanimated';
+import styled from 'styled-components';
 
 export const OverviewContainer = styled(Transitioning.View)<OverviewContainerProps>`
   flex: 1;

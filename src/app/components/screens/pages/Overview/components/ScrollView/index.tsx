@@ -1,5 +1,4 @@
 import React, { useState, useCallback, memo } from 'react';
-import { View } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { verticalPanGestureHandler, snapPoint } from 'react-native-redash';
 import { useNavigation } from '@react-navigation/core';
@@ -134,8 +133,6 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
   const [containerHeight, setContainerHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const navigation = useNavigation();
-
-  // console.log('render', containerHeight, contentHeight);
 
   const { gestureHandler, translationY, velocityY, state } = useMemoOne(
     () => verticalPanGestureHandler(),

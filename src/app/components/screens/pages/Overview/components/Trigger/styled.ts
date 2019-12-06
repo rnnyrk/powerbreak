@@ -1,3 +1,4 @@
+import Animated from 'react-native-reanimated';
 import styled from 'styled-components';
 
 export const TriggerContainer = styled.View<TriggerContainerProps>`
@@ -13,7 +14,7 @@ type TriggerContainerProps = {
   height: number;
 };
 
-export const SearchContainer = styled.View`
+export const SearchContainer = styled(Animated.View)`
   width: 125px;
   height: 48px;
   border-radius: 8px;

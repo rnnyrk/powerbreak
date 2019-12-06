@@ -9,13 +9,13 @@ import { TriggerContainer, SearchContainer } from './styled';
 const grey = {
   r: 186,
   g: 187,
-  b: 199
+  b: 199,
 };
 
 const primary = {
   r: 56,
   g: 132,
-  b: 255
+  b: 255,
 };
 
 const MARGIN_TOP = 32;
@@ -28,17 +28,15 @@ export default memo(({ translateY }: SearchProps) => {
 
   const backgroundColor = interpolateColor(translateY, {
     inputRange: [CONTAINER_HEIGHT, THRESHOLD],
-    outputRange: [grey, primary]
+    outputRange: [grey, primary],
   }) as Animated.Node<number>;
 
   return (
     <TriggerContainer height={CONTAINER_HEIGHT}>
       <SearchContainer
-        as={Animated.View}
-        // @ts-ignore
         style={{
           backgroundColor,
-          transform: [{ translateY: searchTranslateY }]
+          transform: [{ translateY: searchTranslateY }],
         }}
       >
         <TextContent>Add an item</TextContent>
