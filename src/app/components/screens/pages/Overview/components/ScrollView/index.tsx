@@ -8,7 +8,7 @@ import Animated from 'react-native-reanimated';
 
 import { Button } from 'common/interaction';
 
-import { Content } from './styled';
+import { Content, ScrollViewContainer } from './styled';
 import { THRESHOLD } from '../Trigger';
 
 const {
@@ -53,7 +53,7 @@ type WithScrollParams = {
 };
 
 const withScroll = ({
-  translationY, velocityY, state: gestureState, containerHeight, contentHeight
+  translationY, velocityY, state: gestureState, containerHeight, contentHeight,
 }: WithScrollParams) => {
   const clock = new Clock();
   const delta = new Value(0);
@@ -70,7 +70,7 @@ const withScroll = ({
   const lowerBound = -1 * (contentHeight - containerHeight);
   const isInBound = and(
     lessOrEq(state.position, upperBound),
-    greaterOrEq(state.position, lowerBound)
+    greaterOrEq(state.position, lowerBound),
   );
 
   const config = {
@@ -99,10 +99,10 @@ const withScroll = ({
               delta,
               multiply(
                 delta,
-                friction(min(divide(abs(overscroll), containerHeight), 1))
-              )
-            )
-          )
+                friction(min(divide(abs(overscroll), containerHeight), 1)),
+              ),
+            ),
+          ),
         ),
         set(state.velocity, velocityY),
         set(state.time, 0),
@@ -122,9 +122,9 @@ const withScroll = ({
               ]),
             ),
             spring(clock, state, config),
-          ]
+          ],
         ),
-      ]
+      ],
     ),
     state.position,
   ]);
@@ -143,8 +143,7 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
   );
 
   useCode(
-    // @ts-ignore
-    block([
+    () => block([
       set(
         translateY,
         withScroll({
@@ -152,32 +151,29 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
           velocityY,
           state,
           containerHeight,
-          contentHeight
-        })
+          contentHeight,
+        }),
       ),
       cond(
         and(greaterOrEq(translateY, THRESHOLD), neq(state, State.ACTIVE)),
-        call([], onPull)
-      )
+        call([], onPull),
+      ),
     ]),
-    [containerHeight, contentHeight, onPull]
+    [containerHeight, contentHeight, onPull],
   );
 
-  const onLayoutContainer = useCallback(event => {
+  const onLayoutContainer = useCallback((event) => {
     const height = event.nativeEvent.layout.height;
     setContainerHeight(height);
   }, []);
 
-  const onLayoutContent = useCallback(event => {
+  const onLayoutContent = useCallback((event) => {
     const height = event.nativeEvent.layout.height;
     setContentHeight(height);
   }, []);
 
   return (
-    <View
-      style={{ flex: 1 }}
-      onLayout={onLayoutContainer}
-    >
+    <ScrollViewContainer onLayout={onLayoutContainer}>
       <PanGestureHandler {...gestureHandler}>
         <Animated.View
           onLayout={onLayoutContent}
@@ -195,7 +191,7 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
           </Content>
         </Animated.View>
       </PanGestureHandler>
-    </View>
+    </ScrollViewContainer>
   );
 });
 
