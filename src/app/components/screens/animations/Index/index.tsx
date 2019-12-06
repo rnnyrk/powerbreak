@@ -12,23 +12,27 @@ const Index: React.FC<IndexProps> = () => {
   return (
     <Container>
       <AnimationLinkItem onPress={() => navigation.navigate('Success')}>
-        <TextContent variant="white">Success</TextContent>
+        <TextContent>Success</TextContent>
       </AnimationLinkItem>
 
       <AnimationLinkItem onPress={() => navigation.navigate('TransitioningForm')}>
-        <TextContent variant="white">TransitioningForm</TextContent>
+        <TextContent>TransitioningForm</TextContent>
       </AnimationLinkItem>
 
       <AnimationLinkItem onPress={() => navigation.navigate('Transitions')}>
-        <TextContent variant="white">Transitions</TextContent>
+        <TextContent>Transitions</TextContent>
       </AnimationLinkItem>
 
       <AnimationLinkItem onPress={() => navigation.navigate('UseTransitions')}>
-        <TextContent variant="white">UseTransitions</TextContent>
+        <TextContent>UseTransitions</TextContent>
       </AnimationLinkItem>
 
       <AnimationLinkItem onPress={() => navigation.navigate('Timing')}>
-        <TextContent variant="white">Timing</TextContent>
+        <TextContent>Timing</TextContent>
+      </AnimationLinkItem>
+
+      <AnimationLinkItem onPress={() => navigation.navigate('PanGesture')}>
+        <TextContent>PanGesture</TextContent>
       </AnimationLinkItem>
     </Container>
   );

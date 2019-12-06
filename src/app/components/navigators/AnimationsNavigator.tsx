@@ -9,6 +9,7 @@ import {
   TransitioningForm,
   Transitions,
   UseTransitions,
+  PanGesture,
 } from 'screens/animations';
 import { BackButton } from 'common/interaction';
 import theme from 'styles/theme';
@@ -47,10 +48,6 @@ const AnimationsNavigator = () => (
       component={Success}
     />
     <Stack.Screen
-      name="Timing"
-      component={Timing}
-    />
-    <Stack.Screen
       name="TransitioningForm"
       component={TransitioningForm}
     />
@@ -61,6 +58,14 @@ const AnimationsNavigator = () => (
     <Stack.Screen
       name="UseTransitions"
       component={UseTransitions}
+    />
+    <Stack.Screen
+      name="Timing"
+      component={Timing}
+    />
+    <Stack.Screen
+      name="PanGesture"
+      component={PanGesture}
     />
   </Stack.Navigator>
 );
