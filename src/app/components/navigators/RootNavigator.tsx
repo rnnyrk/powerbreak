@@ -1,13 +1,13 @@
 import React from 'react';
-import { StatusBar, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'react-native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import * as i from 'types';
 
 import { Login, Faq } from 'screens/general';
-import { TextContent } from 'common/typography';
+import { CloseButton } from 'common/interaction';
+import theme from 'styles/theme';
 
 import MainNavigator from './MainNavigator';
-import theme from 'styles/theme';
 const Stack = createStackNavigator<i.RootStackParams>();
 
 const RootNavigator = () => (
@@ -42,13 +42,11 @@ const RootNavigator = () => (
             color: theme.colors.white.default,
           },
           headerStyle: {
-            backgroundColor: theme.colors.blue.default
+            backgroundColor: theme.colors.blue.default,
           },
           headerLeft: () => null,
           headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingRight: 16 }}>
-              <TextContent variant="blue">Close</TextContent>
-            </TouchableOpacity>
+            <CloseButton onPress={() => navigation.goBack()} />
           ),
         })}
       />
