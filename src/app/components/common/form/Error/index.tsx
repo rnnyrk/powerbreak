@@ -5,7 +5,7 @@ import { ErrorText } from './styled';
 
 const Error: React.FC<ErrorProps> = ({ name }) => {
   const {
-    meta: { touched, error }
+    meta: { touched, error },
   } = useField(name, { subscription: { touched: true, error: true } });
 
   return touched && error ? (

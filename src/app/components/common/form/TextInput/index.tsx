@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldRenderProps } from "react-final-form";
+import { FieldRenderProps } from 'react-final-form';
 
 import theme from 'styles/theme';
 import { Error, Fieldset } from 'common/form';

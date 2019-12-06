@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import auth from '@react-native-firebase/auth';
-import { User } from '@react-native-community/google-signin';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { useRoute } from '@react-navigation/core';
 import * as i from 'types';
 
@@ -27,22 +26,22 @@ const Login: React.FC = () => {
     }
   }, [accessToken, dispatch, resetAuthToken]);
 
-  const onAuthStateChanged = (user: User | null) => {
-    if (user) {
-      dispatch(setAuth(user.accessToken));
-    }
-
-    if (init) {
-      setInit(false);
-    }
-  };
-
   useEffect(() => {
     configureGoogleLogin();
 
+    const onAuthStateChanged = (user: User | null) => {
+      if (user?.accessToken) {
+        dispatch(setAuth(user.accessToken));
+      }
+
+      if (init) {
+        setInit(false);
+      }
+    };
+
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
-  }, [onAuthStateChanged]);
+  }, [dispatch, init]);
 
   const handleLogin = () => {
     loginWithGoogle()
@@ -67,6 +66,10 @@ const Login: React.FC = () => {
       />
     </Container>
   ) : null;
+};
+
+type User = FirebaseAuthTypes.User & {
+  accessToken?: string;
 };
 
 export default Login;

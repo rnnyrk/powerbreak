@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
+import styled from 'styled-components';
 
 export const TextInputField = styled.TextInput<TextInputFieldProps>`
   width: 100%;
