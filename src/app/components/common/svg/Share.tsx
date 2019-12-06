@@ -21,5 +21,6 @@ type ShareProps = {
   fill: string;
   height: number;
   width: number;
-}
+};
+
 export default Share;

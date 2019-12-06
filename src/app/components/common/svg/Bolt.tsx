@@ -13,6 +13,6 @@ type BoltProps = {
   fill: string;
   height: number;
   width: number;
-}
+};
 
 export default Bolt;

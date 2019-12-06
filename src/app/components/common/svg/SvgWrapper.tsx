@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import Svg from 'react-native-svg';
+import styled from 'styled-components';
 
 const IconWrapper = styled.View`
   display: flex;
@@ -8,7 +8,7 @@ const IconWrapper = styled.View`
 `;
 
 const SvgWrapper: React.FC<SvgWrapperProps> = ({
-  children, width, height, viewBox, fill
+  children, width, height, viewBox, fill,
 }) => (
   <IconWrapper>
     <Svg
@@ -22,10 +22,11 @@ const SvgWrapper: React.FC<SvgWrapperProps> = ({
 );
 
 type SvgWrapperProps = {
+  children: any;
   height: number;
   width: number;
   fill: string;
   viewBox: string;
-}
+};
 
 export default SvgWrapper;
