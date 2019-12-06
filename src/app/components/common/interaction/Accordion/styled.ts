@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { TextContent } from 'common/typography';
 
 export const AccordionContainer = styled.View`
-  width: 100%;
+  min-width: 100%;
   margin-bottom: 16px;
   border-radius: 4px;
   overflow: hidden;
