@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TouchableWithoutFeedback } from 'react-native';
-import Animated, { Easing } from 'react-native-reanimated';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { Easing } from 'react-native-reanimated';
 import { useTransition, bInterpolate, bInterpolateColor } from 'react-native-redash';
 
 import theme from 'styles/theme';
@@ -34,7 +34,7 @@ const Accordion: React.FC<AccordionProps> = ({ title }) => {
   const height = bInterpolate(transition, 0, list.length * LIST_ITEM_HEIGHT);
 
   const rotateZ = bInterpolate(transition, Math.PI, 0);
-  const backgroundColor = bInterpolateColor(transition, theme.colors.blue.rgb, {r: 255, g:255, b:255});
+  const backgroundColor = bInterpolateColor(transition, theme.colors.blue.rgb, { r: 255, g: 255, b: 255 });
 
   return (
     <TouchableWithoutFeedback onPress={() => setOpen((open) => !open)}>
@@ -42,7 +42,6 @@ const Accordion: React.FC<AccordionProps> = ({ title }) => {
         <AccordionHeader>
           <TextContent>{title}</TextContent>
           <IconWrapper
-            as={Animated.View}
             style={{
               backgroundColor,
               transform: [{ rotateZ }],
@@ -51,7 +50,7 @@ const Accordion: React.FC<AccordionProps> = ({ title }) => {
             <ChevronDown width={14} height={10} fill={theme.colors.purple.default} />
           </IconWrapper>
         </AccordionHeader>
-        <AccordionContent as={Animated.View} style={{ height }}>
+        <AccordionContent style={{ height }}>
           {list.map((item, index) => (
             <AccordionItem key={`${title}_${index}`}>{item.title}</AccordionItem>
           ))}
@@ -59,7 +58,7 @@ const Accordion: React.FC<AccordionProps> = ({ title }) => {
       </AccordionContainer>
     </TouchableWithoutFeedback>
   );
-}
+};
 
 type AccordionProps = {
   title: string;

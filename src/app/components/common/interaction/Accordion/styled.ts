@@ -1,3 +1,4 @@
+import Animated from 'react-native-reanimated';
 import styled from 'styled-components';
 
 import { TextContent } from 'common/typography';
@@ -19,7 +20,7 @@ export const AccordionHeader = styled.View`
   background-color: ${({ theme }) => theme.colors.purple.light};
 `;
 
-export const AccordionContent = styled.View`
+export const AccordionContent = styled(Animated.View)`
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.purple.light};
 `;
@@ -33,7 +34,7 @@ export const AccordionItem = styled(TextContent)`
   padding: 16px;
 `;
 
-export const IconWrapper = styled.View`
+export const IconWrapper = styled(Animated.View)`
   height: 25px;
   width: 25px;
   justify-content: center;
