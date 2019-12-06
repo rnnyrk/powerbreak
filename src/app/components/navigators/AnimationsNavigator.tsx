@@ -1,5 +1,4 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as i from 'types';
 
@@ -11,7 +10,7 @@ import {
   Transitions,
   UseTransitions,
 } from 'screens/animations';
-import { TextContent } from 'common/typography';
+import { BackButton } from 'common/interaction';
 import theme from 'styles/theme';
 
 const Stack = createStackNavigator<i.AnimationsStackParams>();
@@ -31,9 +30,7 @@ const AnimationsNavigator = () => (
     screenOptions={({ navigation }) => ({
       ...headerStyle,
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingLeft: 16 }}>
-          <TextContent>Terug</TextContent>
-        </TouchableOpacity>
+        <BackButton onPress={() => navigation.goBack()} />
       ),
     })}
   >

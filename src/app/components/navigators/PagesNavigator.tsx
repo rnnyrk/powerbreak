@@ -1,9 +1,8 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as i from 'types';
 
-import { TextContent } from 'common/typography';
+import { BackButton } from 'common/interaction';
 import { Overview, Detail } from 'screens/pages';
 import theme from 'styles/theme';
 
@@ -34,9 +33,7 @@ const PagesNavigator = () => (
       component={Detail}
       options={({ navigation }) => ({
         headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.goBack()} style={{ paddingLeft: 16 }}>
-            <TextContent>Terug</TextContent>
-          </TouchableOpacity>
+          <BackButton onPress={() => navigation.goBack()} />
         ),
       })}
     />
