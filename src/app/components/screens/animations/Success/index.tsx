@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Animated from 'react-native-reanimated';
 import { useMemoOne } from 'use-memo-one';
 
+import { Container } from 'common/general';
 import { TextContent } from 'common/typography';
 import { Button } from 'common/interaction';
 
@@ -70,13 +71,15 @@ const Success: React.FC<SuccessProps> = () => {
   );
 
   return (
-    <SuccessContainer>
-      <SuccessContent style={{ opacity }}>
-        <TextContent>Success</TextContent>
-      </SuccessContent>
+    <Container>
+      <SuccessContainer>
+        <SuccessContent style={{ opacity }}>
+          <TextContent>Success</TextContent>
+        </SuccessContent>
 
-      <Button title={show ? 'Hide' : 'Show'} onPress={() => setShow((prev) => !prev)} />
-    </SuccessContainer>
+        <Button title={show ? 'Hide' : 'Show'} onPress={() => setShow((prev) => !prev)} />
+      </SuccessContainer>
+    </Container>
   );
 };
 

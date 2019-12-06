@@ -3,10 +3,11 @@ import { Dimensions } from 'react-native';
 import { useTransition } from 'react-native-redash';
 import Animated from 'react-native-reanimated';
 
+import { Container } from 'common/general';
 import { Button } from 'common/interaction';
 
 import {
-  UseTransitionsContainer, UseTransitionsCard, UseTransitionsCardContainer
+  UseTransitionsContainer, UseTransitionsCard, UseTransitionsCardContainer,
 } from './styled';
 
 const { width } = Dimensions.get('window');
@@ -18,46 +19,48 @@ const UseTransitions: React.FC<UseTransitionsProps> = () => {
   const transition = useTransition(toggle, not(toggle), toggle);
 
   return (
-    <UseTransitionsContainer>
-      {Array.from({ length: 3 }).map((_, index) => {
-        let direction = 0;
-        if (index === 0) {
-          direction = -1;
-        } else if (index === 2) {
-          direction = 1;
-        }
+    <Container>
+      <UseTransitionsContainer>
+        {Array.from({ length: 3 }).map((_, index) => {
+          let direction = 0;
+          if (index === 0) {
+            direction = -1;
+          } else if (index === 2) {
+            direction = 1;
+          }
 
-        // You can't use * / + - etc. since those live on the JS thread
-        // instead use reanimated functions to sum since that's UI thread
-        const rotate = multiply(direction, interpolate(transition, {
-          inputRange: [0, 1],
-          outputRange: [0, 30],
-        }));
+          // You can't use * / + - etc. since those live on the JS thread
+          // instead use reanimated functions to sum since that's UI thread
+          const rotate = multiply(direction, interpolate(transition, {
+            inputRange: [0, 1],
+            outputRange: [0, 30],
+          }));
 
-        return (
-          <UseTransitionsCardContainer
-            key={`card_${index}`}
-            style={{
-              transform: [
-                { translateX: transformOrigin },
-                // Same goes for concat instead of `${rotate}deg`
-                { rotate: concat(rotate, 'deg') },
-                { translateX: -transformOrigin },
-              ]
-            }}
-          >
-            <UseTransitionsCard cardNumb={index} />
-          </UseTransitionsCardContainer>
-        );
-      })}
+          return (
+            <UseTransitionsCardContainer
+              key={`card_${index}`}
+              style={{
+                transform: [
+                  { translateX: transformOrigin },
+                  // Same goes for concat instead of `${rotate}deg`
+                  { rotate: concat(rotate, 'deg') },
+                  { translateX: -transformOrigin },
+                ],
+              }}
+            >
+              <UseTransitionsCard cardNumb={index} />
+            </UseTransitionsCardContainer>
+          );
+        })}
 
-      <Button
-        title={toggle ? 'Open' : 'Close'}
-        onPress={() => setToggle(toggle ^ 1)}
-      />
-    </UseTransitionsContainer>
+        <Button
+          title={toggle ? 'Open' : 'Close'}
+          onPress={() => setToggle(toggle ^ 1)}
+        />
+      </UseTransitionsContainer>
+    </Container>
   );
-}
+};
 
 type UseTransitionsProps = {};
 

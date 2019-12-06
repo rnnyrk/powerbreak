@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Animated from 'react-native-reanimated';
 
+import { Container } from 'common/general';
+
 import { TimingContainer, Bubble } from './styled';
 
 const {
@@ -22,25 +24,27 @@ const Timing: React.FC<TimingProps> = () => {
   const delta = 1 / bubbles.length;
 
   return (
-    <TimingContainer>
-      {bubbles.map((index) => {
-        const start = index * delta;
-        const end = start + delta;
+    <Container>
+      <TimingContainer>
+        {bubbles.map((index) => {
+          const start = index * delta;
+          const end = start + delta;
 
-        const scale = interpolate(progress, {
-          inputRange: [start, end],
-          outputRange: [1, 1.5],
-          extrapolate: Extrapolate.CLAMP,
-        });
+          const scale = interpolate(progress, {
+            inputRange: [start, end],
+            outputRange: [1, 1.5],
+            extrapolate: Extrapolate.CLAMP,
+          });
 
-        return (
-          <Bubble
-            key={`bubble_${index}`}
-            style={{ transform: [{ scale }] }}
-          />
-        );
-      })}
-    </TimingContainer>
+          return (
+            <Bubble
+              key={`bubble_${index}`}
+              style={{ transform: [{ scale }] }}
+            />
+          );
+        })}
+      </TimingContainer>
+    </Container>
   );
 };
 

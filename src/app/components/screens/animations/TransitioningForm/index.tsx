@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 import { TransitioningView, Transition } from 'react-native-reanimated';
+import { TouchableWithoutFeedback } from 'react-native';
 
+import { Container } from 'common/general';
 import { Button } from 'common/interaction';
 import { TextInput, FormWrapper } from 'common/form';
 import { TextContent } from 'common/typography';
 
 import { TransitioningFormContainer, OverlayCard, OverlayContent } from './styled';
-import { TouchableWithoutFeedback } from 'react-native';
 
 const required = (value: string) => value ? undefined : 'Required';
 
@@ -42,48 +43,50 @@ const TransitioningForm: React.FC<TransitioningFormProps> = () => {
   };
 
   return (
-    <TransitioningFormContainer {...{ ref, transition }}>
-      {submitted && (
-        <TouchableWithoutFeedback onPress={toggleSuccessView}>
-          <OverlayCard>
-            <OverlayContent>
-              <TextContent>Thank you for submitting the message!</TextContent>
-            </OverlayContent>
-          </OverlayCard>
-        </TouchableWithoutFeedback>
-      )}
-
-      <FinalForm
-        onSubmit={onHandleSubmit}
-        initialValues={initialValues}
-        render={({ handleSubmit }) => (
-          <FormWrapper>
-            <Field<string>
-              name="firstName"
-              validate={required}
-            >
-              {(props) => <TextInput {...props} placeholder="First name" />}
-            </Field>
-            <Field<string>
-              name="lastName"
-              validate={required}
-            >
-              {(props) => <TextInput {...props} placeholder="Last name" />}
-            </Field>
-            <Field<string>
-              name="email"
-              validate={required}
-            >
-              {(props) => <TextInput {...props} placeholder="Email address" />}
-            </Field>
-
-            <Button title="Submit" onPress={handleSubmit} />
-          </FormWrapper>
+    <Container>
+      <TransitioningFormContainer {...{ ref, transition }}>
+        {submitted && (
+          <TouchableWithoutFeedback onPress={toggleSuccessView}>
+            <OverlayCard>
+              <OverlayContent>
+                <TextContent>Thank you for submitting the message!</TextContent>
+              </OverlayContent>
+            </OverlayCard>
+          </TouchableWithoutFeedback>
         )}
-      />
-    </TransitioningFormContainer>
+
+        <FinalForm
+          onSubmit={onHandleSubmit}
+          initialValues={initialValues}
+          render={({ handleSubmit }) => (
+            <FormWrapper>
+              <Field<string>
+                name="firstName"
+                validate={required}
+              >
+                {(props) => <TextInput {...props} placeholder="First name" />}
+              </Field>
+              <Field<string>
+                name="lastName"
+                validate={required}
+              >
+                {(props) => <TextInput {...props} placeholder="Last name" />}
+              </Field>
+              <Field<string>
+                name="email"
+                validate={required}
+              >
+                {(props) => <TextInput {...props} placeholder="Email address" />}
+              </Field>
+
+              <Button title="Submit" onPress={handleSubmit} />
+            </FormWrapper>
+          )}
+        />
+      </TransitioningFormContainer>
+    </Container>
   );
-}
+};
 
 type FormValues = {
   firstName: string;
