@@ -7,7 +7,7 @@ import { TextContent } from 'common/typography';
 import { ExtendedTouchableHighlight } from './styled';
 
 const Button: React.FC<ButtonProps> = ({
-  onPress, disabled, loading, title, variant, testID
+  onPress, disabled, loading, title, variant, testID,
 }) => (
   <ExtendedTouchableHighlight
     onPress={onPress}
@@ -25,7 +25,7 @@ Button.defaultProps = {
   disabled: false,
   loading: false,
   variant: 'primary',
-}
+};
 
 type ButtonProps = i.TestProps & {
   onPress?: () => void;
