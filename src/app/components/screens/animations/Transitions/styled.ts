@@ -1,12 +1,13 @@
-import styled, { css } from 'styled-components';
 import { Dimensions } from 'react-native';
 import Animated, { Transitioning } from 'react-native-reanimated';
+import styled, { css } from 'styled-components';
 
 const { width } = Dimensions.get('window');
 
 export const TransitionsContainer = styled.View`
   width: 100%;
   flex: 1;
+  padding: 0;
 `;
 
 export const TransitionsCard = styled(Animated.View)<CardProps>`
@@ -25,6 +26,7 @@ export const TransitionsCard = styled(Animated.View)<CardProps>`
 export const CardContainer = styled(Transitioning.View)<CardProps>`
   width: 100%;
   flex: 2;
+  padding: 0;
 
   ${(props) => props.variant === 'row' && css`
     flex-direction: row;
