@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Share } from 'react-native';
+import { Share, Alert } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/core';
 import * as i from 'types';
 
@@ -31,7 +32,7 @@ const Detail: React.FC<DetailProps> = () => {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
 
