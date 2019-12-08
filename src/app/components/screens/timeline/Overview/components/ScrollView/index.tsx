@@ -5,10 +5,11 @@ import { useNavigation } from '@react-navigation/core';
 import { useMemoOne } from 'use-memo-one';
 import Animated from 'react-native-reanimated';
 
-import { Button } from 'common/interaction';
+import { Content, ContentItem, ScrollViewContainer } from './styled';
+import { TextContent } from 'common/typography';
 
-import { Content, ScrollViewContainer } from './styled';
 import { THRESHOLD } from '../Trigger';
+import data from './data';
 
 const {
   SpringUtils,
@@ -37,8 +38,6 @@ const {
   min,
   divide,
 } = Animated;
-
-const Arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
 
 const friction = (ratio: Animated.Node<number>) =>
   multiply(0.52, pow(sub(1, ratio), 2));
@@ -177,13 +176,13 @@ export default memo(({ translateY, onPull }: ScrollViewProps) => {
           style={{ transform: [{ translateY }] }}
         >
           <Content>
-            {Arr.map((index) => (
-              <Button
-                key={index}
+            {data.map((item, index) => (
+              <ContentItem
+                key={item.key}
                 onPress={() => navigation.navigate('Detail', { id: index })}
-                variant="secondary"
-                title={`View page; ${index}`}
-              />
+              >
+                <TextContent>{item.title}</TextContent>
+              </ContentItem>
             ))}
           </Content>
         </Animated.View>

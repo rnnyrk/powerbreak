@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as i from 'types';
 
 import { BackButton } from 'common/interaction';
-import { Overview, Detail } from 'screens/pages';
+import { Overview, Detail } from 'screens/timeline';
 import theme from 'styles/theme';
 
 const Stack = createStackNavigator<i.PagesStackParams>();
