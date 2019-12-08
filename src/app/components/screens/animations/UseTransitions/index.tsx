@@ -52,12 +52,11 @@ const UseTransitions: React.FC<UseTransitionsProps> = () => {
             </UseTransitionsCardContainer>
           );
         })}
-
-        <Button
-          title={toggle ? 'Open' : 'Close'}
-          onPress={() => setToggle(toggle ^ 1)}
-        />
       </UseTransitionsContainer>
+      <Button
+        title={toggle ? 'Open' : 'Close'}
+        onPress={() => setToggle(toggle ^ 1)}
+      />
     </Container>
   );
 };
