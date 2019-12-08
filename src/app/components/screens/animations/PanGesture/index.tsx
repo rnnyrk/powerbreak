@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { ViewComponent } from 'react-native';
+import { View } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { onGestureEvent, clamp } from 'react-native-redash';
@@ -22,7 +22,6 @@ const withOffset = (value: Animated.Value<number>, state: Animated.Value<State>)
 };
 
 const PanGesture: React.FC<PanGestureProps> = () => {
-  const ref = useRef<ViewComponent>(null);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
@@ -40,20 +39,26 @@ const PanGesture: React.FC<PanGestureProps> = () => {
   });
 
   useEffect(() => {
-    if (ref.current) {
-      console.log('ref', ref.current);
-    }
-  }, [ref]);
+
+  }, [])
+
 
   // get CardContainer height and width
-  const containerWidth = 0;
-  const containerHeight = 0;
+  console.log(width, height);
+  const containerWidth = width;
+  const containerHeight = height;
 
   const translateX = clamp(withOffset(translationX, state), 0, containerWidth - CARD_WIDTH);
   const translateY = clamp(withOffset(translationY, state), 0, containerHeight - CARD_HEIGHT);
 
   return (
-    <CardContainer ref={ref}>
+    <CardContainer
+      onLayout={(event) => {
+        const { width, height } = event.nativeEvent.layout;
+        setWidth(width);
+        setHeight(height);
+      }}
+    >
       <PanGestureHandler {...gestureHandler}>
         <Animated.View style={{
           transform: [{ translateX }, { translateY }],
