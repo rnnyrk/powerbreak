@@ -1,5 +1,5 @@
-import * as i from 'types';
 import { ActionType, action } from 'typesafe-actions';
+import * as i from 'types';
 
 export const authActions = {
   set: (accessToken: string) => action('auth/SET', accessToken),
