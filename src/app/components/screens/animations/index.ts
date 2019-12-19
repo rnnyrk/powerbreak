@@ -1,3 +1,4 @@
+export { default as Decay } from './Decay';
 export { default as Index } from './Index';
 export { default as PanGesture } from './PanGesture';
 export { default as Success } from './Success';
